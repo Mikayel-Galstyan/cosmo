@@ -1,0 +1,64 @@
+<div class="backgoundDiv">
+    <div class="loginMainDiv">
+        <div class="loginHeader">
+            <div class="loginBgLogo"></div>
+            <div class="loginBgInfo"></div>
+            <div class="loginBgLeft">
+                <a href=""><span class="swtichTo"><?php echo $this->translate('switch.to'); ?></span>
+                <span class="german"><?php echo $this->translate('german'); ?></span> </a>
+            </div>
+        </div>
+        <div class="loginHeaderBottom"></div>
+        <div class="loginFormDiv">
+            <form id="loginFrom" action="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login'));?>" method="POST"> 
+                <table>
+                    <tr>
+                        <td class="loginLabelTd" colspan="2">
+                            <label class="loginError">
+                                <?php if($this->loginfailed) { ?>    
+                                        <?php echo $this->translate('auth.failed'); ?>         			
+                                <?php } ?>	
+                            <label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="loginLabelTd">
+                            <label class="loginInfo">
+                                <?php echo $this->translate('username'); ?>
+                            <label>
+                        </td>
+                        <td class="loginInputTd">
+                            <input type="text" id="username" name="email" placeholder="Username">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="loginLabelTd">
+                            <label class="loginInfo">
+                                <?php echo $this->translate('password') ?>
+                            <label>
+                        </td>
+                        <td class="loginInputTd">
+                            <input type="password" id="password" name="password" placeholder="Password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="loginLabelTd">
+                            <a href="user/edit">Registration</a>
+                        </td>
+                        <td class="loginInputTd">
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="loginLabelTd">
+                            
+                        </td>
+                        <td class="loginInputTd">
+                            <input type="submit" class="loginButton" value="<?php echo $this->translate('log.in') ?>">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>                
+</div>

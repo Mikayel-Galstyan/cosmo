@@ -1,0 +1,159 @@
+/* -- Notice */
+.ui-pnotify {
+    top: 25px;
+    right: 25px;    
+    background-color:#fff;
+    width:250px !important;            
+    -webkit-box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:    -2px 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow:         -2px 4px 10px rgba(0, 0, 0, 0.5);        
+    position: absolute;
+    height: auto;
+    /* Ensures notices are above everything */
+    z-index: 10000;
+    cursor:pointer;
+}
+/* Hides position: fixed from IE6 */
+html > body .ui-pnotify {
+    position: fixed;
+}
+.ui-pnotify-container {
+    background-position: 0 0;
+    padding: 20px 12px;
+    height: 100%;
+    margin: 0;
+}
+.ui-pnotify-sharp {
+    /*
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    */
+}
+.ui-pnotify-closer, .ui-pnotify-sticker {
+    float: right;
+    margin-left: .2em;
+}
+.ui-pnotify-title {
+    display: block;
+    margin-top: 1px;
+    margin-bottom: .6em;
+    text-transform:uppercase;
+    font-weight: bold;
+}
+.ui-pnotify-text {
+    display: block;
+    color: #000;
+    text-align: center;    
+    text-transform:uppercase;
+    font-size: 12px;
+}
+.ui-pnotify-icon, .ui-pnotify-icon span {
+    display: block;
+    float: left;
+    margin-right: .2em;
+}
+/* -- History Pulldown */
+.ui-pnotify-history-container {
+    position: absolute;
+    top: 0;
+    right: 18px;
+    width: 70px;
+    border-top: none;
+    padding: 0;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+    /* Ensures history container is above notices. */
+    z-index: 10000;
+}
+.ui-pnotify-history-container .ui-pnotify-history-header {
+    padding: 2px;
+}
+.ui-pnotify-history-container button {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+.ui-pnotify-history-container .ui-pnotify-history-pulldown {
+    display: block;
+    margin: 0 auto;
+}
+.notification{
+    color:red !important;
+    font-size:15px !important;
+    text-align:center !important;
+}
+.alert {  
+    /*
+    color: #c09853;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: #fcf8e3;
+    border: 1px solid #fbeed5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    */
+}
+.alert-heading {
+    color: inherit;
+}
+.alert .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    line-height: 18px;
+}
+.alert-success {
+    color: #386b00;    
+    border:2px solid #386b00;
+}
+.alert-danger,
+.alert-error {
+  color: #b94a48;    
+  border:2px solid #b94a48;  
+}
+.alert-info {
+    color: #386b00;
+    border:2px solid #386b00;
+}
+.alert-block {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.alert-block > p,
+.alert-block > ul {
+    margin-bottom: 0;
+}
+.alert-block p + p {
+    margin-top: 5px;
+}
+[class^="icon-"], [class*=" icon-"] {
+    background-image: url("../images/icons/notifications_icons.png");
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 15px;
+    margin-top: 0px;
+    vertical-align: text-top;
+    width: 16px;
+}
+.icon-remove {
+    background-position: -16px 0;
+    margin-left:75px;
+}
+.icon-ok-sign {
+    background-position: -32px 0px;
+    margin-left:60px;
+}
+.icon-info-sign {
+    background-position: right;
+    margin-left:80px;
+}
+.icon-warning-sign {
+    background-position: left;
+    margin-left:65px;
+}

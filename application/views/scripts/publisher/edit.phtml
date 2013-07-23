@@ -1,0 +1,65 @@
+<script>
+$(function(){
+    //CustomFormElement.init();
+    //$("#ajaxForm").jqTransform();
+});
+</script>
+<?php
+    $this->setPageTitle('user.management');
+    $formatting = $this->getHelper('DataFormatting');
+?>
+<script type="text/javascript">
+    $(function(){
+    	Menu.acitvate('user');        
+    });
+</script>
+<?php
+    if($this->isPublisher){
+?>
+    <form id="ajaxForm" action="publisher/save" method="post" onsubmit="Form.submit('ajaxForm'); return false;">
+        <input type="hidden" name="id" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getId()):'')?>" />
+        <input type="hidden" name="userId" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getUserId()):'')?>" />
+        <div class="fixed_head">
+            <span class="tableTitle"><?php echo $this->translate('publisher'). ' // ' . ($this->item ? $this->translate('edit'): $this->translate('add')); ?></span>        
+            <table class="editTable">                    
+                <tbody>                    
+                    <tr>
+                        <td class="middle left w180"><label for="name"><?php echo $this->translate('name')?> *</label></td>
+                        <td class="middle left"><input type="text" name="name" id="name" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getName()):'')?>"/></td>                    
+                    </tr>    
+                    <tr>
+                        <td class="middle left w150"><label for="address"><?php echo $this->translate('address')?></label></td>
+                        <td class="middle left"><input type="text" name="address" id="address" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getAddress()):'')?>"/></td>
+                    </tr>
+                    <tr>
+                        <td class="middle left"><label for="phone"><?php echo $this->translate('phone')?></label></td>
+                        <td class="middle left"><input type="text" name="phone" id="phone" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getPhone()):'')?>"/></td>
+                    </tr>
+                    <tr>
+                       <td class="middle left"><label for="order"><?php echo $this->translate('order')?> </label></td>
+                       <td class="middle left">
+                           <?php echo 'ACTIVE';?>
+                       </td>
+                    </tr> 
+                    <tr>
+                        <td class="middle left"><label for="clicks"><?php echo $this->translate('clicks')?></label></td>
+                        <td class="middle left"><?php echo ($this->item ? $this->htmlEscape($this->item->getClicks()):'0')?></td>
+                    </tr>
+                    <tr>
+                        <td class="middle left"><label for="site"><?php echo $this->translate('site')?></label></td>
+                        <td class="middle left"><input type="text" name="site" id="site" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getSite()):'')?>"/></td>
+                    </tr> 
+                    <tr>
+                        <td class="middle left"></td>
+                        <td class="middle left"><input type="button" onclick="Form.submit('ajaxForm')" value="save"/></td>
+                    </tr>                     
+                </tbody>
+                <tfoot><tr><td class="h p5_0"></td></tr></tfoot>
+            </table>
+        </div> 
+    </form>
+    <?php }else{ ?>
+        <div>
+            <?php echo $this->translate('this.action.only.for.publishers');?>
+        </div>
+    <?php } ?>

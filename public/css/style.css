@@ -1,0 +1,654 @@
+/* Importing CSS styles
+---------------------------------------------------------------------------------------------------*/
+@import url("reset.css");
+@import url("icon.css");
+@import url("table.css");
+@import url("const.css");
+@import url("notifications.css");
+@import url("button.css");
+@import url("mapmenu.css");
+@import url("popup.css");
+@import url("custom.form.element.css");
+@import url("addForm.css");
+@import url("slider.css");
+/* Header
+---------------------------------------------------------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0 none;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+body {
+    background-color:#ffffff;
+    color: #333333;
+    font: 75%/1.5 "myriad pro",helvetica,arial,sans-serif;
+	min-width:1504px;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+caption, th, td {
+    font-weight: normal;
+    text-align: left;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+}
+blockquote, q {
+    quotes: "" "";
+}
+li {
+    list-style-type: none;
+}
+hr {
+    display: none;
+}
+strong, b {
+    font-weight: bold;
+}
+em, i {
+    font-style: italic;
+}
+a {
+    color: #333333;
+    text-decoration: none;
+}
+a.alt, .altbox .content a {
+    border-color: #DDECC1;
+    color: #386B00;
+}
+a:hover, a:active, a:focus, a.alt:hover, a.alt:active, a.alt:focus, .altbox .content a:hover, .altbox .content a:active, .altbox .content a:focus {
+    border-color: #CEEC96;
+    color: #59AA00;
+}
+a img {
+    border: medium none;
+}
+.cw {
+    overflow: hidden;
+    width: 100%;
+}
+.cw2 {
+    height: 1%;
+    overflow: hidden;
+}
+.cleaner {
+    clear: both;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.ir {
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.tl {
+    text-align: left !important;
+}
+.tr {
+    text-align: right !important;
+}
+.tc {
+    text-align: center !important;
+}
+.ttop {
+    vertical-align: top !important;
+}
+.hand {
+    cursor: pointer;
+}
+.a-hidden {
+    position: absolute;
+    top: -10000em;
+}
+.first {
+    border-left: 0 none !important;
+}
+.last {
+    border-right: 0 none !important;
+}
+.inner-container {
+    margin: 0 auto;
+    width: 960px;
+}
+#header {
+    background: url("../images/backgrounds/header_bg.png") repeat scroll 0 0 #3b3d3c;
+    border-bottom: 9px solid #72b14c;
+    min-height: 107px;
+    height: 107px;
+}
+#header .inner-container {
+    margin: 0;
+    width: 100%;
+    height:100%;
+}
+#header div.logo {
+    float: left;
+    width: 168px;
+    height: 100%;
+    position: relative;
+    border-right: 1px solid #464847;
+}
+#header div.logo a {
+	background: url("../images/logos/logo.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    display: block;
+    width: 83px;
+    height: 84px;
+    margin: 12px 0 0 43px;
+}
+
+#header div.slogan {
+    float: left;
+    width: 409px;
+    height: 100%;
+    position: relative;
+    border-right: 1px solid #464847;
+}
+
+#header div.slogan span {
+	display: block;
+	width: 342px;
+    height: 57px;
+	background-image: url("../images/logos/teeflow.png"), url("../images/logos/slogan.png");
+	background-position: left top, left bottom;
+	background-repeat: no-repeat;
+    margin: 26px 0 0 32px;
+}
+
+#header div.language {
+    float: right;
+    width: 74px;
+    height: 100%;
+    position: relative;
+    background-color: #414342;
+    border-right: 1px solid #3c3e3e;
+    border-left: 1px solid #464847;
+}
+
+#header div.username {
+    float: right;
+    height: 100%;
+    position: relative;
+    background-color: #414342;
+    border-right: 1px solid #464847;
+    border-left: 1px solid #464847;
+}
+
+#header div.username span {
+	display: block;
+    heght: 16px;
+    color: #8e8e8e;
+    font-size: 16px;
+    line-height:24px;
+    margin: 41px 30px;
+}
+
+#header div.logout {
+    float: right;
+    width: 67px;
+    height: 100%;
+    position: relative;
+    background-color: #414342;
+    border-left: 1px solid #3b3d3c;
+}
+
+#header div.logout a{
+    display: block;
+    width: 27px;
+    height: 28px;
+    background: url("../images/icons/logout.png") no-repeat scroll 0 0 transparent;
+    margin: 40px 23px;
+}
+
+
+/* Wrappers
+---------------------------------------------------------------------------------------------------*/
+
+.page_wrapper {
+    overflow: hidden;
+}
+
+#nav {
+    float: left;
+    width: 168px;
+}
+
+#nav form input.text {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #555555;
+    font-size: 100%;
+    height: 14px;
+    margin: 1px 0 1px 1px;
+    outline: 0 none;
+    overflow: hidden;
+    padding: 6px 2px;
+    vertical-align: middle;
+    width: 194px;
+}
+
+.content_wrapper {
+    overflow: hidden;
+	padding-bottom: 20px;
+    min-height: 540px;
+}
+
+.content_container {
+    margin: 0 auto;
+    margin-top: 0px;
+    width: 100%;   
+}
+
+/* Nav Menu
+---------------------------------------------------------------------------------------------------*/
+
+#nav_menu{
+    margin-top:0px;
+    width:168px;    
+    background-color: #ededed;
+}
+
+#nav_menu>li{
+    height: 134px;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+#nav_menu>li:first-child { 
+    border-top: none;
+}
+
+#nav_menu>li:hover { 
+    border-top: 1px solid #e2e2e2;
+}
+
+#nav_menu>li:first-child:hover { 
+    border-top: none;
+}
+
+#nav_menu>li.clube{
+    background: url("../images/icons/nav_menu/club.png"),url("../images/backgrounds/gray_bg.png");
+    background-position: 54px 23px, right top;
+    background-repeat: no-repeat;
+}
+
+#nav_menu>li.course{
+    background: url("../images/icons/nav_menu/course.png"),url("../images/backgrounds/gray_bg.png");
+    background-position: 54px 23px, right top;
+    background-repeat: no-repeat;
+}
+
+#nav_menu>li.hole{
+    background: url("../images/icons/nav_menu/hole.png"),url("../images/backgrounds/gray_bg.png");
+    background-position: 54px 23px, right top;
+    background-repeat: no-repeat;
+}
+
+#nav_menu>li.analytic_tool{
+    background: url("../images/icons/nav_menu/analytic_tool.png"),url("../images/backgrounds/gray_bg.png");
+    background-position: 54px 23px, right top;
+    background-repeat: no-repeat;
+}
+
+#nav_menu>li>a{  
+    display: block;
+    width: 100%;
+    height: 40px; 
+    color:#6f6f6f;
+    font-size:16px;
+    text-align: center;
+    text-decoration:none;
+    padding-top: 94px;
+}
+
+
+#nav_menu>li.clube>a:hover{
+    background: url("../images/icons/nav_menu/club_s.png");
+    background-position: 54px 23px;
+    background-repeat: no-repeat;    
+    background-color: #e2e2e2;
+}
+
+#nav_menu>li.course>a:hover {
+    background: url("../images/icons/nav_menu/course_s.png");
+    background-position: 54px 23px;
+    background-repeat: no-repeat;
+    background-color: #e2e2e2;
+}
+
+#nav_menu>li.hole>a:hover{
+    background: url("../images/icons/nav_menu/hole_s.png");
+    background-position: 54px 23px;
+    background-repeat: no-repeat;    
+    background-color: #e2e2e2;
+}
+
+#nav_menu>li.analytic_tool>a:hover {
+    background: url("../images/icons/nav_menu/analytic_tool_s.png");
+    background-position: 54px 23px;
+    background-repeat: no-repeat;       
+    background-color: #e2e2e2;
+}
+
+#nav_menu>li.clube>a.active {
+    background: url("../images/icons/nav_menu/club_s.png"),url("../images/icons/nav_menu/selector.png");
+    background-position: 54px 23px, right center;
+    background-repeat: no-repeat;    
+    background-color: #e2e2e2;
+}
+
+#nav_menu>li.course>a.active {
+    background: url("../images/icons/nav_menu/course_s.png"),url("../images/icons/nav_menu/selector.png");
+    background-position: 54px 23px, right center;
+    background-repeat: no-repeat;
+    background-color: #e2e2e2;
+}
+
+#nav_menu>li.hole>a.active {
+    background: url("../images/icons/nav_menu/hole_s.png"),url("../images/icons/nav_menu/selector.png");
+    background-position: 54px 23px, right center;
+    background-repeat: no-repeat;    
+    background-color: #e2e2e2;
+}
+
+#nav_menu>li.analytic_tool>a.active {
+    background: url("../images/icons/nav_menu/analytic_tool_s.png"),url("../images/icons/nav_menu/selector.png");
+    background-position: 54px 23px, right center;
+    background-repeat: no-repeat;       
+    background-color: #e2e2e2;
+}
+
+#container .inner-container {
+    left: 10px;
+    padding: 20px 0;
+    position: relative;
+    width: 980px;
+    z-index: 1;
+}
+
+/* Panel
+---------------------------------------------------------------------------------------------------*/
+.panel{
+    position: relative;
+    background-color: #fff;
+}
+tr[name=FillRateZoneClick] td
+{
+    cursor:pointer; 
+}
+/* Add 
+---------------------------------------------------------------------------------------------------*/
+.add {
+    line-height: 10px;
+    float: left;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 12px;
+    color: #999;
+    text-decoration: none;
+    padding-bottom: 10px;
+}
+
+
+/* Float
+---------------------------------------------------------------------------------------------------*/
+.fl{
+    float:left !important;
+}
+.fr{
+    float:right !important;
+}
+.cl{
+    clear:both !important;
+}
+/* Custom classes 
+---------------------------------------------------------------------------------------------------*/
+.center {
+    text-align: center;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block ;
+}
+.border{
+    border: 1px solid #888;
+}
+
+/* Errors classes 
+---------------------------------------------------------------------------------------------------*/
+.error-message{
+    color: red;
+    font-size:12px;
+    margin-top: 4px;
+    min-width: 200px;
+}
+.error{
+    border:1px solid red;    
+}
+
+.scroll .error-message {
+    width: 198px;
+}
+.edit_name{
+    font-size: 16px;
+    color: #999999;
+    line-height:40px;
+    display: inline-block;
+}
+
+/*links
+-----------------------------------*/
+.link{
+    color: black;
+    text-decoration:none;
+    cursor:pointer;
+}
+.link:hover{
+    color: #386B00;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+/*Lines
+-----------------------------------*/
+.polygon {
+	width: 25%;
+	border-right:1px solid #888888 !important;
+	float: left;
+}
+.pois {
+	width: 40%;	
+	margin-left:10px;
+	float: left;
+}
+.poi input{
+	margin-right: 10px !important;
+}
+/*Lines
+-----------------------------------*/
+.gray_line {
+	height: 1px; 
+	background-color: #999;
+	margin: 0 auto;
+}
+
+.page_title {
+    with:100%;
+    height: 38px;
+    background-color: #ededed;
+}
+
+.page_title>div {
+    float:left;
+    border-right: 1px solid #e1e1e1;
+    padding: 8px 15px 8px 15px;
+    font-size: 14px;
+    color: #7a7a7a;
+}
+label {
+	color: #909090;
+    font-size: 14px;	
+}
+
+/* Polygons
+-----------------------------------*/
+.polygon_wrapper {
+	overflow: hidden;
+    width:100%;
+}
+.polygon_wrapper .fixed_container {
+	float: right;
+	width: 624px;
+}
+
+.fixed_container>div {
+    width: 586px;
+    margin-left: 12px;
+}
+
+.fixed_container .custom_add {
+    padding:0; 
+    float:left; 
+    height:35px; 
+    width:33px;
+}
+
+.polygon_wrapper .map {
+    overflow: hidden;
+    height: 600px;
+    border: 5px solid #c4c4c4;
+}
+
+.polygon_list {
+	width: 549px;
+    height: 35px;
+    margin-left: 38px;
+}
+
+.polygon_list div {
+
+}
+
+.polygon_list ul {
+}
+
+.polygon_list ul li {
+	display:block;
+    float:left;
+    width: 30px;
+    height: 33px;
+    border: 1px solid #dbdbdb;
+    margin-right: 5px;
+    color: #828282;
+    font-size: 14px;
+    text-align: center;
+    line-height: 33px;
+    cursor: pointer;
+}
+
+.polygon_list ul li:hover, .polygon_list ul li.active {
+	background-color: #eaeaea;
+}
+
+.polygon_content {
+	width: 100%;
+    border: 1px solid #dbdbdb;
+    margin-top: 6px;
+}
+
+.polygon_content .polygon_name {
+    width: 100%;
+    height: 40px;
+    background-color: #eaeaea;
+    border-bottom: 1px solid #dbdbdb;
+
+}
+
+.polygon_content .polygon_name span {
+    color: #909090;
+    font-size: 14px;
+    line-height: 40px;
+    padding-left: 12px;
+}
+
+.polygon_content .polygon_name a {
+    float: right;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin: 2px 4px;
+}
+
+.polygon_content .polygon_tab {
+    margin-top: 12px;
+    margin-left: 9px;
+    height: 40px;
+}
+
+.polygon_content .polygon_tab ul {
+}
+
+.polygon_content .polygon_tab  ul li {
+    display:block;
+    float:left;
+    height: 39px;
+    border: 1px solid #e7e7e7;
+    margin-right: 5px;
+    color: #828282;
+    font-size: 14px;
+    text-align: center;
+    line-height: 33px;
+    border-bottom: none;
+}
+
+.polygon_content .polygon_tab ul li:hover, .polygon_content .polygon_tab ul li.active {
+    background-color: #f5f5f5;
+    border: 1px solid #dbdbdb;
+    border-bottom: none;
+    height: 40px;
+    color: #909090;
+}
+
+.polygon_content .polygon_tab  ul li a {
+    display:block;
+    height: 39px;
+    cursor: pointer;
+    padding-left: 29px;
+    padding-right: 29px;
+    color: #909090;
+}
+
+.polygon_content .polygon_tab  ul li a:hover {
+    color: #909090;
+}
+
+.polygon_content .polygon_tab_content {
+	border: 1px solid #dbdbdb;
+    margin-left: 9px;
+    margin-right: 9px;
+    background-color: #f5f5f5;
+}
+

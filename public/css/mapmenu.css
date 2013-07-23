@@ -1,0 +1,210 @@
+#map_container {
+	width: 100%;
+	height: 800px;
+	position: relative;
+	overflow: hidden;
+}
+#map_container .map_image{	
+	position: relative;
+	cursor:move;
+	width:0px;
+	top:0px;
+	left:0px;	
+}
+#cord {
+	width: 210px;
+	position: absolute;
+	border: solid 1px #CCC;
+	background: #EEE;
+	padding: 0px 5px;
+	z-index: 101;
+	display: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.polygon_temp {
+	cursor: move;
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	z-index: 99;
+}
+.polygon_point {
+	background: url(../images/icons/polygon_points.png) no-repeat 0px 0px;
+}
+.polygon_poi {
+	background: url(../images/icons/polygon_points.png) no-repeat 0px -20px;
+}
+.polygon_hole {
+	background: url(../images/icons/polygon_points.png) no-repeat 0px -40px;
+}
+/* Generic context menu styles */
+#contextMenu {
+	border: 1px solid #718BB7;
+	position: absolute;
+	width: 150px;
+	background: #F0F0F0 url(../images/mapmenu/bg.gif) left repeat-y;
+	z-index: 101;
+	border: solid 1px #CCC;
+	padding: 0px;
+	margin: 0px;
+	display: none;
+}
+#contextMenu div.split {
+	margin: 2px 4px;
+	height: 2px;
+	width: 96%;
+	background: url(../images/mapmenu/split.gif) repeat-x;
+}
+#contextMenu li {
+	list-style: none;
+	margin: 0px;
+	padding: 0px 4px;
+	line-height: 20px;
+	height: 20px;
+}
+#contextMenu span {
+	margin: 2px;
+	line-height: 16px;
+	float: left;
+}
+#contextMenu li.active:hover {
+	cursor: pointer;
+	color: #FFF;
+	background-color: #3399FF;
+}
+#contextMenu li.disable {
+	color: #BDBDBD;
+	pointer-events: none;
+	cursor: default;
+}
+#contextMenu li.separator {
+	border-top: solid 1px #CCC;
+}
+.map-control {
+	z-index:100;
+	position: absolute;	
+}
+.type1{
+	top: 10px;
+	left: 10px;
+	background: url(../images/mapmenu/type1.png) no-repeat;
+	height: 63px;
+	width: 100px;
+}
+.type2{	
+	margin-left: 68px;
+	background: url(../images/mapmenu/type2.png) no-repeat;
+	height: 59px;
+	width: 203px;
+}
+.map-control a {
+	height: 18px;
+	width: 18px;
+	display: block;
+	text-indent: -999em;
+	position: absolute;
+	outline: none;
+}
+.map-control a:hover {
+	background: #535353;
+	opacity: .4;
+	filter: alpha(opacity = 40);
+}
+.type1 a.left {
+	left: 39px;
+	top: 22px;
+}
+.type1 a.right {
+	left: 79px;
+	top: 22px;
+}
+.type1 a.up {
+	left: 59px;
+	top: 2px;
+}
+.type1 a.down {
+	left: 59px;
+	top: 42px;
+}
+.type1 a.zoom-in {
+	left: 2px;
+	top: 8px;
+	height: 21px;
+	width: 21px;
+}
+.type1 a.zoom-out {
+	left: 2px;
+	top: 31px;
+	height: 21px;
+	width: 21px;
+}
+.type2 a.left {
+	left: 3px;
+	top: 21px;
+}
+.type2 a.right {
+	left: 41px;
+	top: 21px;
+}
+.type2 a.up {
+	left: 22px;
+	top: 4px;
+}
+.type2 a.down {
+	left: 22px;
+	top: 38px;
+}
+.type2 a.zoom-in {
+	left: 77px;
+	top: 8px;
+	height: 21px;
+	width: 21px;
+}
+.type2 a.zoom-out {
+	left: 77px;
+	top: 30px;
+	height: 21px;
+	width: 21px;
+}
+.type2 a.width-in {
+	left: 102px;
+	top: 8px;
+	height: 21px;
+	width: 43px;
+}
+.type2 a.width-out {
+	left: 102px;
+	top: 30px;
+	height: 21px;
+	width: 43px;
+}
+.type2 a.height-in {
+	left: 171px;
+	top: 8px;
+	height: 43px;
+	width: 21px;
+}
+.type2 a.height-out {
+	left: 149px;
+	top: 8px;
+	height: 43px;
+	width: 21px;
+}
+
+/* static map
+**********************/
+#staticMap { 
+	margin: 10px auto;
+}
+#staticMap, #staticMap img {
+	text-align: center;
+	max-width: 1280px;
+	max-height: 1280px;	
+}

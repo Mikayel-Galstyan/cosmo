@@ -1,0 +1,80 @@
+.error_404 {
+    width: 100%;
+    height: 100%;
+    background-color: #3b3e3c;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.error_404>div {
+    width:460px;
+    height: 273px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.error_404>div>span {
+    width:100%;
+    display: block;
+    color: #8d8f8e;
+    font-family: MyriadPro;
+    font-size: 18px;
+}
+
+.error_404 .logo {
+    height: 84px;
+    background-image: url("../images/logos/logo.png"), url("../images/logos/teeflow.png"), url("../images/logos/slogan.png");
+    background-position: left top, 118px 16px, right 64px;
+    background-repeat: no-repeat;
+}
+
+.error_404 .big {
+    font-size: 30px;
+    color: #b7b8b7;
+}
+
+/* green button */
+.green {
+    display:inline-block;
+    background: #72b14c;
+    border: 1px solid #5f9d3a;
+    border-radius: 3px 3px 3px 3px;
+    color: #f9f9f9;
+    font-size:14px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 4px 15px 4px 15px;
+}
+.green:hover {
+    border: 1px solid #5f9d3a;
+    background-color: #62a03c;
+    color: #f9f9f9;
+}
+.green:active {
+    border: 1px solid #5f9d3a;
+    background-color: #62a03c;
+    color: #f9f9f9;
+}
+
+
+/****************** Conts *********************/
+
+.mt19 {
+    margin-top: 19px !important;
+}
+
+.mt25 {
+    margin-top: 25px !important;
+}
+
+.mt40 {
+    margin-top: 40px !important;
+}
+
+.gray1 {
+    color: #8d8f8e !important;
+}
+
+.gray2 {
+    color: #797b7a !important;
+}

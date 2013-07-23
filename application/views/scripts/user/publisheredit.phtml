@@ -1,0 +1,32 @@
+<?php
+    $formatting = $this->getHelper('DataFormatting');
+?>
+<script type="text/javascript">
+    $(function(){
+        CustomFormElement.init();
+    });
+</script>
+<form id="ajaxForm" action="user/savepublisher" method="post" enctype="multipart/form-data" onsubmit="Form.submit('user/publisheredit');">
+    <div class="fixed_head">
+            <span class="tableTitle"><?php echo $this->translate('change.password'); ?></span>            
+        <table class="editTable">                  
+            <tbody> 
+                <tr>
+                    <td class="middle left w150"><label for="password"><?php echo $this->translate('publisher.password')?></label></td>
+                    <td class="middle left"><input type="password" name="password" id="password" value=""/></td>
+                </tr>
+                <tr>
+                    <td class="middle left w150"><label for="passwordConfirm"><?php echo $this->translate('password.confirm')?></label></td>
+                    <td class="middle left"><input type="password" name="passwordConfirm" id="passwordConfirm" value=""/></td>
+                </tr>
+                <tr>
+                    <td class="middle left"><?php echo $formatting->space(); ?></td>
+                    <td class="middle left">
+                        <a href="" class="button save" onclick="Form.submit(''); return false;"><?php echo $this->translate('save');?></a>
+                    </td>
+                </tr>            
+            </tbody>
+            <tfoot><tr><td class="h p5_0"></td></tr></tfoot>
+        </table>
+    </div> 
+</form>

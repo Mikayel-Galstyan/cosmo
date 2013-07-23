@@ -1,0 +1,148 @@
+@font-face{
+    font-family: MyriadPro;
+    src: url('../fonts/MyriadPro-Regular.otf');
+}
+.backgoundDiv{
+    position:absolute;
+    top:0px;
+    left:0px;
+    background:url("../images/login/golf.jpg");
+    background-size:1920px 1200px;
+    background-repeat:no-repeat;
+    background-position:center; 
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+.loginMainDiv{
+    position:relative;
+    margin: auto;
+    top:30%;
+    width:655px;
+    height:358px;
+    background-image:url("../images/login/shadow.png");
+    background-size:655px 20px;
+    background-repeat:no-repeat;
+    background-position: 100% 100%;
+}
+.loginFormDiv{
+    padding-top:20px;
+    background:white;
+    width:655px;
+    height:220px;
+}
+
+.loginFormDiv>form>table{
+    background:white;
+    position:relative;
+    left:55px;
+    width:600px;
+    height:220px;
+}
+
+.loginFormDiv>form{
+    padding:0 !important;
+}
+
+.loginHeaderBottom{
+    width:655px;
+    height:10px;
+    background:#72b14c;
+}    
+.loginError{
+    color:red;
+    padding-top:20px;
+    font-size:12px;
+    font-family: MyriadPro;
+}
+.loginInfo{
+    font-size : 12px;
+    color:#3b3d3c;
+    font-family: MyriadPro;
+}
+.loginLabelTd{
+    width:100px;
+    height:30px;
+}
+
+.loginInputTd>input{
+    width:315px;
+    height:35px;
+    border: 1px solid silver;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:black;
+    padding-left: 15px;
+    font-family: MyriadPro;
+}
+
+.loginButton{
+    width:75px !important;
+    height:34px !important;
+    background:#72b14c;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding-left: 5px !important;
+    font-size:12px;
+    font-family: MyriadPro;
+    color:white !important;
+    cursor:pointer;
+}
+.loginHeader{
+    width:655px;
+    height:100px;
+    background-image:url("../images/login/header_bg.png");
+}  
+.loginBgLogo{
+    
+    background-image:url("../images/logos/logo.png");
+    background-size:83px 84px;
+    background-repeat:no-repeat;
+    width:150px;
+    height:100px;
+    border-right:1px solid #464847;
+    background-position: 30px 9px;
+    
+}
+
+.loginBgInfo{
+    background-image:url("../images/logos/teeflow.png"),url("../images/logos/slogan.png");
+    background-size:125 30,340 15;
+    background-repeat:no-repeat;
+    background-position: 42px 25px,45px 70px;
+    width:430px;
+    height:100px;
+    position:absolute;
+    left: 150px;
+    border-right:1px solid #464847;
+    top:0px;
+                   
+}
+
+.loginBgLeft{
+    background-image:url("../images/logos/switch_to_german.png");
+    background-size:100% 100%;
+    background-repeat:no-repeat; 
+    position:absolute;
+    width:73px;
+    height:100px;
+    right: 0px;
+    top:0px; 
+}
+.loginBgLeft>a{
+    position:absolute;
+    text-align:center;
+    top:30%;
+    font-size:14px;
+    font-family: MyriadPro;
+    text-decoration: none
+}
+
+.swtichTo{
+    color:#5f5f5f;
+}
+.german{
+    color:#797a7a;
+}

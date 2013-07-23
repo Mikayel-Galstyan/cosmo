@@ -1,0 +1,61 @@
+<div class="scroll">
+    <table class="zebra">
+        <colgroup>
+            <col class="r4">
+            <col class="r25">
+            <col class="r10">
+            <col class="r15">
+            <col class="r15">
+            <col class="r10">
+            <col class="r15">
+            <col class="r6">
+        </colgroup>    
+        <tbody>
+        <?php 
+            $i = 0;            
+            foreach ($this->items as $item){     
+            ?>
+            <tr class="<?php echo ($i%2==0 ? 'odd' : 'even')?>">
+                <td class="middle center" title="<?php echo ($x = $this->htmlEscape($item->getId()))?>"><?php echo $x;?></td>
+                <td class="middle left" title="<?php echo ($x = $this->htmlEscape($item->getEmail()))?>">
+                 <?php if($this->authorize('edituser', $item->getStatus()) || $this->getUser()->getId()==$item->getId()){?> 
+                    <a href="<?php echo ($item->getStatus() == Service_User::AGENCY_ROLE ? 'agency/'.$this->htmlEscape($item->getAgencyId()):($item->getStatus() == Service_User::PUBLISHER_ROLE ? 'publisher/'.$this->htmlEscape($item->getPublisherId()): 'user/'.$item->getId())) ?>/edit" class="link"><?php echo $x; ?></a>
+                 <?php }else{?>
+                     <?php echo $x; ?>
+                 <?php }?>
+                </td>              
+                <td class="middle left" title="<?php echo ($x = $this->htmlEscape($item->getCompany()))?>">
+                    <?php echo $x;?>
+                </td>
+                <td class="middle left" title="<?php echo ($x = $this->htmlEscape($item->getLastName()))?>">
+                    <?php echo $x;?>
+                </td>
+                <td class="middle left" title="<?php echo ($x = $this->htmlEscape($item->getFirstName()))?>">
+                    <?php echo $x;?>
+                </td>
+                <td class="middle left" title="<?php echo ($x= $this->translateUserRole($item->getStatus()))?>">
+                    <?php echo $x;?>
+                </td>  
+                <td class="middle left" title="<?php echo ($x = $this->formatDateOutput($item->getDate()))?>">
+                    <?php echo $x;?>
+                </td>            
+                <td class="middle center">      
+                    <?php if($this->authorize('edituser', $item->getStatus()) || $this->getUser()->getId()==$item->getId()){?>                              
+                    <div><a href="<?php echo ($item->getStatus() == Service_User::AGENCY_ROLE ? 'agency/'.$this->htmlEscape($item->getAgencyId()):($item->getStatus() == Service_User::PUBLISHER_ROLE ? 'publisher/'.$this->htmlEscape($item->getPublisherId()): 'user/'.$item->getId())) ?>/edit" class="ico_edit_16 ml10" title="<?php echo $this->translate('edit'); ?>"></a></div>
+                    <?php }?>
+                    <?php if($this->authorize('edituser', $item->getStatus()) && $this->getUser()->getId()!=$item->getId()){?>  
+                    <div><a href="" class="ico_delete_16 ml10" onclick="userDelete.show('user/<?php echo $this->htmlEscape($item->getId()); ?>/confirm'); return false;"  title="<?php echo $this->translate('delete'); ?>"></a></div>
+                    <?php }?>
+                </td>
+            </tr>
+            <?php $i++;}?>            
+            <?php if($i==0) { ?>
+                <tr class="odd">
+                    <td colspan='6' class="middle"> <div class="center"><?php echo $this->translate('no.record.available'); ?></div> </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+
+                

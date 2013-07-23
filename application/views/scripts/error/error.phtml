@@ -1,0 +1,21 @@
+<?php if ('development' != APPLICATION_ENV): ?>
+	<img src="images/icons/warning-64.png" alt="warning" />
+<?php endif ?> 
+<h2><?php echo $this->message ?></h2>
+<?php if ('development' == APPLICATION_ENV): ?>
+<br>
+<h3>Exception information:</h3>
+<p>
+  <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+</p>
+<br>
+<h3>Stack trace:</h3>
+<pre><?php echo $this->exception->getTraceAsString() ?>
+</pre>
+<br>
+<h3>Request Parameters:</h3>  
+<pre>
+  <?php echo var_dump($this->request->getParams(), true) ?>
+</pre>
+<?php endif ?>
+

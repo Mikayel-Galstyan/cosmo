@@ -1,0 +1,47 @@
+/* Styeling Icons 
+------------------------------------------------*/
+/**
+ * Icos 16x16
+ */
+.ico_add_16{
+    float:left;
+    width:16px;
+    height:16px;
+    background: url("../images/icons/16/icons.png") no-repeat -38px -264px;
+}
+.ico_edit_16{
+    float:left;
+    width:21px;
+    height:21px;
+    background: url("../images/icons/edit.png") no-repeat 0 0;
+}
+.ico_edit1_16{
+    float:left;
+    width:16px;
+    height:16px;
+    background: url("../images/icons/16/icons.png") no-repeat -156px -30px;
+}
+.ico_del_16{
+    float:left;
+    width:16px;
+    height:16px;
+    background: url("../images/icons/16/icons.png") no-repeat 2px -264px;
+}
+.ico_clean_16{
+    float:left;
+    width:16px;
+    height:16px;
+    background: url("../images/icons/16/icons.png") no-repeat 2px -264px;
+}
+.ico_save_16{
+    float:left;
+    width:16px;
+    height:16px;
+    background: url("../images/icons/16/icons.png") no-repeat -98px -237px;
+}
+.ico_rul_16{
+    float:left;
+    width:16px;
+    height:16px;
+    background: url("../images/icons/16/icons.png") no-repeat -100px -158px;
+}

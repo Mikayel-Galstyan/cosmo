@@ -1,0 +1,23 @@
+#slider_ul_wrapper {
+	overflow:hidden; 
+    height:100%; 
+    float:left;
+}
+
+#slider_right_arrow {
+    display: block;
+    float:right;
+    width: 31px;
+    height: 100%;
+    background: url("../images/icons/slider/arrow_right.png") no-repeat scroll center center;
+    cursor: pointer;
+}
+
+#slider_left_arrow {
+    display: none;
+    float:left;
+    width: 31px;
+    height: 100%;
+    background: url("../images/icons/slider/arrow_left.png") no-repeat scroll center center;
+    cursor: pointer;
+}  

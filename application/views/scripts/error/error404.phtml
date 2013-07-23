@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base href="<?php echo $this->baseUrl(); ?>" />
+        <link rel="stylesheet" type="text/css" href="/css/error.css" /> 
+    </head>
+    <body>
+    <?php if ('development' != APPLICATION_ENV): ?>
+    <?php //require_once (APPLICATION_PATH.'/../library/Miqo/util/JSMin.php');?>
+        <!-- <img src="images/icons/warning-64.png" alt="warning" /> --> 
+        <div class="error_404">        	
+            <div id="error_container">
+                <span class="logo"></span>
+                <span class="mt40"><span class="big">404. </span><?php echo $this->translate('errortext1'); ?></span>
+                <span class="mt19 gray1"><?php echo $this->translate('errortext2'); ?></span>
+                <span class="gray2"><?php echo $this->translate('errortext3'); ?></span>
+                <a href="/" id="add_button" class="green mt25"><?php echo $this->translate('errortext4'); ?></a>
+            </div>
+        </div>
+        <script>
+            container = document.getElementById('error_container');
+            container.style.top = Math.max(0, (window.innerHeight - 273) / 2) + "px";
+        </script>
+    <?php endif ?>
+    <?php if ('development' == APPLICATION_ENV): ?>
+    <h2><?php echo $this->message ?></h2>
+    <br/>
+    <h3>Exception information:</h3>
+    <p>
+        <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+    </p>
+    <br/>
+    <h3>Stack trace:</h3>
+    <pre><?php echo $this->exception->getTraceAsString() ?></pre>
+    <br/>
+    <h3>Request Parameters:</h3>  
+    <pre><?php echo var_dump($this->request->getParams(), true) ?></pre>
+    <?php endif ?>
+    </body>
+</html>

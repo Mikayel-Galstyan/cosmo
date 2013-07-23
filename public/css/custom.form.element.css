@@ -1,0 +1,130 @@
+input.styled {
+    opacity:0;
+}
+select:hover{
+    background-image: url('../images/form/select-hover.png');        
+}
+
+.hasDatepicker{ 
+    cursor: pointer;
+    background:white url(../images/datepicker/icon.png) no-repeat right center;
+}
+form a.button{    
+    height:24px;
+    width:193px;    
+}
+form a.button:focus{    
+    outline:2px solid rgba(81, 167, 232, 1);     
+}
+form textarea{
+    border:0px;
+    padding:5px;
+    margin:0px;    
+    height:38px;
+    width:183px;    
+}
+form select{
+    height:37px;
+    width:305px;    
+}
+
+.checkbox, .radio {
+    width: 20px;
+    height: 20px;
+    padding: 0 0 0 0;
+    background: url(../images/form/checkbox.png) no-repeat;
+    display: block;
+    clear: left;
+    float: left;
+    position: absolute;
+}
+.radio {
+    background: url(../images/form/radio.png) no-repeat;
+}
+.select {   
+    word-wrap: break-word;
+    padding:2px 25px 0px 10px;
+    line-height: 34px;
+    position: absolute;
+    height: 37px;
+    background-image: url(../images/form/slectSlideIcon.png), url(../images/form/select.png);
+    background-position: right, left;
+    background-repeat: no-repeat; 
+    background-size: 37px 37px, 100% 100%;
+    overflow: hidden;
+    font-size: 12px;
+    color: black;
+    text-align: left;
+    font-weight: normal;
+    color:#a2a1a1;
+}
+.upload {
+    float:left;            
+    position: relative;
+    width: 220px; 
+    height: 31px;   
+    background: url(../images/form/upload.png) no-repeat;
+    overflow: hidden;
+    font-size: 12px;
+    color: black;
+    text-align: left;
+    cursor: pointer;
+    top:11px;
+}
+.upload .filename{    
+    line-height:31px;
+    padding:0px 25px 0px 10px;
+    width: 220px; 
+    height: 31px;    
+    font-size: 12px;
+    word-wrap: break-word;
+    font-weight: normal;
+    cursor: pointer;    
+    color: #a2a1a1;
+    
+}
+.upload input {    
+    display: block;
+    position:absolute;
+    top:0;
+    left: 0;    
+    font-size: 100px;
+    opacity:0;
+    -moz-opacity:0;
+    filter:alpha(opacity:0);        
+    z-index:2; 
+    width:100%;
+    height: 100%;
+}
+.textInput{
+    background:#eeeeee;
+    border-radius: 3px;
+    padding-left:8px;
+    height:31px; 
+    color:#a2a1a1;
+    border:1px solid #dbdbdb;
+}
+
+.imageShowIcon{
+    float:left;
+    background-image: url('../images/form/view.png'), url("../images/form/btn_background.png");
+    background-repeat:no-repeat,no-repeat;
+    background-position: 7px, 0px 0px;
+    background-size: 25px,100% 100%;
+    display:block;
+    margin-left:4px;
+    cursor:pointer;
+    position:relative;
+    top:11px;
+    display:inline-block;
+    border-radius: 3px 3px 3px 3px;
+    color: #f9f9f9;
+    font-size:14px;
+    cursor: pointer;
+    padding: 6px 15px 5px 15px;
+    opacity: 0.9;
+}
+
+
+
+

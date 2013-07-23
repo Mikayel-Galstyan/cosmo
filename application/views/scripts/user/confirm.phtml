@@ -1,0 +1,4 @@
+<form id="ajaxFormDeleteUser" action="user/delete">    
+    <input type="hidden" name="id" value="<?php echo $this->htmlEscape($this->id); ?>" />
+    <div class="message"><?php echo $this->translate('you.are.about.to.delete.this.item').'<br/>'. $this->translate('it.cannot.be.restored.at.a.later.time!.continue?')?></div>               
+</form>

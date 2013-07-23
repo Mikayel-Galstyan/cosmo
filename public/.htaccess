@@ -1,0 +1,27 @@
+SetEnv APPLICATION_ENV development
+php_value memory_limit 2024M
+php_value upload_max_filesize 50M
+php_value post_max_size 50M
+
+<IfModule mod_expires.c>
+# turn on the module for this directory
+ExpiresActive on
+
+# cache common graphics for 1 day
+ExpiresByType image/jpg "access plus 24 hours"
+ExpiresByType image/gif "access plus 24 hours"
+ExpiresByType image/jpeg "access plus 24 hours"
+ExpiresByType image/png "access plus 24 hours"
+
+# cache CSS, JavaScript for 24 hours
+ExpiresByType text/css "access plus 24 hours"
+ExpiresByType text/javascript "access plus 24 hours"
+</IfModule>
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]

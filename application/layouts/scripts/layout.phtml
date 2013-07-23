@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<html>
+<head>
+    <?php 
+        $jsHelper = $this->getHelper('js');
+        $jsHelper->urlChecker();
+        echo $this->headMeta();        
+    ?>
+    <title><?php echo $this->translate('project.name')?></title>
+    <base href="<?php echo $this->baseUrl(); ?>" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />   
+    <link rel="stylesheet" type="text/css" href="css/jqtransform.css" />     
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJb0djlYn-tZnpG3-Id2bhS3peDkoGx4M&sensor=false"> </script>
+    <?php 
+    echo $this->headScript()
+    ->appendFile('js/jquery-1.8.2.min.js', 'text/javascript')
+    ->appendFile('js/jquery-ui-1.10.3.custom.min.js', 'text/javascript')    
+    ->appendFile('js/plugins/jquery.tablesorter.js', 'text/javascript')
+    ->appendFile('js/plugins/jquery.form.js', 'text/javascript')
+    ->appendFile('js/plugins/jquery.pnotify.min.js', 'text/javascript')
+    ->appendFile('js/plugins/history.js', 'text/javascript')
+    ->appendFile('js/plugins/jquery.maphilight.min.js', 'text/javascript')
+    ->appendFile('js/plugins/jquery.mousewheel.js', 'text/javascript')
+    ->appendFile('js/plugins/custom.form.elements.js', 'text/javascript')
+    ->appendFile('js/plugins/jquery.jqtransform.js', 'text/javascript');        
+    ?>
+    <?php echo $this->action("index", "Jsmin"); ?>
+    </head>
+<body>
+    <div class="webPageHeader">
+        <div class="logo"></div>
+        <div class="navMenu">
+            
+        </div>
+    </div>
+    <div class="page_wrapper" id="container">
+         <div class="content_wrapper">
+            <div class="content_container">
+                <div class="">
+                </div>
+                <div class="panel">
+                    <?php echo $this->layout()->content; ?>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
