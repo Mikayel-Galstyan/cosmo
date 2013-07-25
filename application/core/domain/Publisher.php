@@ -41,6 +41,12 @@ class Domain_Publisher extends Miqo_Domain_AbstractEntity {
      * @var int
      */
     protected $startOrderDate = null;
+     /**
+     *
+     * @var int
+     */
+    protected $population = null;
+    
     
     public function getName() {
         return $this->name;
@@ -49,6 +55,15 @@ class Domain_Publisher extends Miqo_Domain_AbstractEntity {
         $this->name = $val;
         return $this;
     }
+    
+    public function getPopulation() {
+        return $this->population;
+    }
+    public function &setPopulation($val) {
+        $this->population = $val;
+        return $this;
+    }
+    
     public function getOrder() {
         return $this->order;
     }

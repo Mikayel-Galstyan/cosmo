@@ -10,7 +10,8 @@ class Dao_Objects extends Miqo_Dao_Base {
             'cost' => 'cost',
             'publisher_id' => 'publisherId',
             'objectType_id' => 'objectTypeId',
-            'shopList_id' => 'shopListId');
+            'shopList_id' => 'shopListId',
+            'population' => 'population');
     
     protected $entityClass = 'Domain_Objects';
 
@@ -19,7 +20,7 @@ class Dao_Objects extends Miqo_Dao_Base {
     }
 	
     
-    public function &getByTypeId($id){
+    public function &getByParams(Filter_Objects $filter){
         $select = $this->dbTable->select()->from(array('c' => Dao_DbTable_List::OBJECTS),array(
         'id AS id', 
         'name AS name',
@@ -30,7 +31,21 @@ class Dao_Objects extends Miqo_Dao_Base {
         'objectType_id AS objectTypeId',
         'shopList_id AS shopListId'
         ));
-        $select->where('publisher_id = ?', $id);
+        if($filter->getShopListId()){
+            $select->where('shopList_id = ?', $filter->getShopListId());
+        }
+        if($filter->getPublisherId()){
+            $select->where('publisher_id = ?', $filter->getPublisherId());
+        }
+        if($filter->getObjectTypeId()){
+            $select->where('objectType_id = ?', $filter->getObjectTypeId());
+        }
+        if($filter->getCostMin()){
+            $select->where('cost >=', $filter->getCostMin());
+        }
+        if($filter->getCostMax()){
+            $select->where('cost <=', $filter->getCostMax());
+        }
         $result = $this->dbTable->fetchAll($select);
     	$items = &$this->getEntities($result);
     	return $items;

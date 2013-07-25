@@ -55,6 +55,9 @@ class Service_User extends Miqo_Service_Base {
                 $domain->setPassword($this->encodePassword($domain->getPassword(),$domain->getPasswordSalt()));
             }
             $domain = $this->dao->save($domain);
+            if(!is_dir ("users/".$domain->getEmail())){
+                mkdir("users/".$domain->getEmail());
+            }
             return $domain;
         } else {
             throw new Miqo_Util_Exception_Validation($errors, "save.of.user.is.suspended.as.there.are.validation.errors");

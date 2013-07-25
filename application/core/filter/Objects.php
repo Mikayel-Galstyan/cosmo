@@ -1,5 +1,5 @@
 <?php
-class Filter_Objects extends Filter_Order {
+class Filter_Objects {
     /**
      *
      * @var int
@@ -15,12 +15,52 @@ class Filter_Objects extends Filter_Order {
      * @var int
      */
     protected $objectTypeId = null;
-
+    /**
+     *
+     * @var int
+     */
+    protected $costMin = null;
+    /**
+     *
+     * @var int
+     */
+    protected $costMax = null;
+    /**
+     *
+     * @var int
+     */
+    protected $population = null;
+    
+    
+    public function getPopulation() {
+        return $this->population;
+    }
+    public function &setPopulation($val) {
+        $this->population = $val;
+        return $this;
+    }
+    
     public function getPublisherId() {
         return $this->publisherId;
     }
     public function &setPublisherId($val) {
         $this->publisherId = $val;
+        return $this;
+    }
+    
+    public function getCostMin() {
+        return $this->costMin;
+    }
+    public function &setCostMin($val) {
+        $this->costMin = $val;
+        return $this;
+    }
+    
+    public function getCostMax() {
+        return $this->costMax;
+    }
+    public function &setCostMax ($val) {
+        $this->costMax = $val;
         return $this;
     }
     

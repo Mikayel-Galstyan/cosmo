@@ -36,12 +36,26 @@ class Domain_Objects extends Miqo_Domain_AbstractEntity {
      * @var int
      */
     protected $shopListId = null;
+    /**
+     *
+     * @var int
+     */
+    protected $population = null;
+    
+    
     
     public function getName() {
         return $this->name;
     }
     public function &setName($val) {
         $this->name = $val;
+        return $this;
+    }
+    public function getPopulation() {
+        return $this->population;
+    }
+    public function &setPopulation($val) {
+        $this->population = $val;
         return $this;
     }
     public function getDescription() {

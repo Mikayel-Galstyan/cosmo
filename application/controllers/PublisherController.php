@@ -47,13 +47,13 @@ class PublisherController extends SecureController {
             $item = $service->getById($id);
         } else {
             $item = new Domain_Publisher();
+            $item->setOrder(1);
         }
         $item->setName($this->name);
         $item->setUserId($this->getAuthUser()->getId());
         $item->setAddress($this->address);
         $item->setPhone($this->phone);
         $item->setSite($this->site);
-        $item->setOrder(1);
         try {
             $service->save($item);
             $this->printJsonSuccessRedirect($this->translate('success.save'),'objecttype');

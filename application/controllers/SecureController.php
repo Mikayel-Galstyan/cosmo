@@ -11,7 +11,7 @@ abstract class SecureController extends ControllerActionSupport {
         $userSession = new Miqo_Session_Base();
         $this->userSession = $userSession;
         if (!$userSession->get('authUser')){
-            //return $this->_redirect('/auth');
+            return $this->_redirect('/auth/logout');
         }        
         if($this->isXmlHttpRequest()) {
             $this->disableLayout();
@@ -48,7 +48,9 @@ abstract class SecureController extends ControllerActionSupport {
         if(!$this->userName) {
             $userSession = new Miqo_Session_Base();
             $userDomain = $userSession->get('authUser');
-            $this->userName = $userDomain->getEmail();
+            if($userDomain){
+                $this->userName = $userDomain->getEmail();
+            }
         }
         return $this->userName;
     }

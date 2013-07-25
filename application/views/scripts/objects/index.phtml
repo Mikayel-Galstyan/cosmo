@@ -1,65 +1,26 @@
-<?php 
-    $this->setPageTitle('objets'); 
-    $formatting = $this->getHelper('DataFormatting');
-?>
-<script>
-$(function(){
-    Grid.init('club/list');
-    callback = function(){
-        var options = { 
-                dataType:'json',
-                success: function(result) { 
-                	if (Notify.show(result) == true){                     	
-                        //hiding popup box
-                        Popup.hide();
-                        //show loader
-                        Mask.showLoader();                                                        
-                        //reload page
-                        Url.load('club');                    
+<div>
+    <form action="objects/list" name="ajaxForm" id="ajaxForm">
+        <div class="fl">
+            <select name="objectTypeId" id="objectTypeId">
+                <option value="">--Select--</option>
+                <?php
+                    foreach($this->items as $item){
+                ?>
+                    <option value="<?php echo $item->getId() ?>"><?php echo $this->translate($item->getName()); ?></option>
+                <?php
                     }
-                }
-            };             
-        $('#ajaxFormDeleteClub').ajaxSubmit(options);               
-    }; 
-    init = {buttons:[{name:'<?php echo $this->translate('yes') ?>',callback: callback}]};
-    clubDelete = new Popup(init);
-    removeForm.init('club/delete','deleteFormDiv');
-    $(document).ready(function(){
-        $(".selectChange select").on("change",function(){
-            Form.changeAction('siteFilter','inventory/siteslist');
-            Filter.submit('siteFilter','sitelist');
-        });
-    });
-});
-
-</script>
-<div id="deleteFormDiv">
-
-</div>
-<div class="page_title">
-    <div><?php echo $this->translate('clubs');?></div>
-</div>
-
-<div class="table_wrapper ml20 mt20">
-
+                ?>
+            </select>
+        </div>
+        <div class="fl">
+            <input type="button" value="filter" onclick="Form.submit('ajaxForm');return false;">
+        </div>
+    </form>
+    <a href="objects/edit">add</a>
     <table class="mt20">
     	<tbody>
     		<tr class="head">
                 <td>
-                    <table class="tlf">
-                        <colgroup>
-                            <col class="w48">
-                            <col class="w75">
-                            <col class="">
-                        </colgroup>
-                        <thead class="zebra header_zebra">
-                            <tr>
-                                <th class="middle left br0" title=""><span></span></th>
-                                <th class="middle left header pl32" id="id" onclick="Grid.sort('id')" title="<?php echo $val=$formatting->toUppercase($this->translate('id')); ?>"><span><?php echo $val; ?></span></th>
-                                <th class="middle left header bl0" id="name" onclick="Grid.sort('name')" title="<?php echo $val=$formatting->toUppercase($this->translate(array('club','name'))); ?>"><span><?php echo $val; ?></span></th>
-                            </tr>
-                        </thead>
-                    </table>
                 </td>
             </tr>
     		<tr class='panel'>
@@ -67,7 +28,4 @@ $(function(){
     		</tr>
     	</tbody>
     </table>
-    
 </div>
-
-

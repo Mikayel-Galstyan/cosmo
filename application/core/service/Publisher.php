@@ -21,7 +21,12 @@ class Service_Publisher extends Miqo_Service_Base {
         }
     }
     
-     public function validate(Domain_Publisher $domain) {
+    public function getByParams(Filter_Publisher $filter){
+        $items = $this->dao->getByParams($filter);
+        return $items;
+    }
+    
+    public function validate(Domain_Publisher $domain) {
         $validationConf = self::$VALIDATION_CONFIG;
         if ($this->validator == null) {
             $this->validator = new Miqo_Validation_Base($validationConf);

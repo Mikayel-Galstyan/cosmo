@@ -59,6 +59,7 @@ class UserController extends SecureController {
         $id = $authUser->getId();
         $service = new Service_User();
         $item = $service->getById($id);
+       
         if ($this->password) {
         	$item->setPassword($this->password);
         	$item->setPasswordConfirm($this->passwordConfirm);

@@ -3,12 +3,17 @@
 class Domain_ShopList extends Miqo_Domain_AbstractEntity {
     /**
      *
-     * @var int
+     * @var string
      */
     protected $address = null;
     /**
      *
-     * @var int
+     * @var string
+     */
+    protected $name = null;
+    /**
+     *
+     * @var string
      */
     protected $phone = null;
 	 /**
@@ -18,10 +23,14 @@ class Domain_ShopList extends Miqo_Domain_AbstractEntity {
     protected $publisherId = null;
 	/**
 	 *
-	 * @var int
+	 * @var string
 	 */
     protected $description = null;
-    
+     /**
+     *
+     * @var int
+     */
+    protected $population = null;
     
     
     public function getAddress() {
@@ -29,6 +38,22 @@ class Domain_ShopList extends Miqo_Domain_AbstractEntity {
     }
     public function &setAddress($val) {
         $this->userId = $val;
+        return $this;
+    }
+    
+    public function getName() {
+        return $this->name;
+    }
+    public function &setName($val) {
+        $this->name = $val;
+        return $this;
+    }
+    
+    public function getPopulation() {
+        return $this->population;
+    }
+    public function &setPopulation($val) {
+        $this->population = $val;
         return $this;
     }
 	
