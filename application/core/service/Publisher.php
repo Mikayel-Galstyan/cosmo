@@ -13,7 +13,10 @@ class Service_Publisher extends Miqo_Service_Base {
     
     public function &__t_save(Domain_Publisher $domain) { 
         $errors = $this->validate($domain);       
-        if (sizeof($errors) == 0) {                     
+        if (sizeof($errors) == 0) {
+			if(!$domain->getId()){
+				$domain->setStartOrderDate(date("Y-m-d H:i:s"));
+			}				
             $domain = $this->dao->save($domain);
             return $domain;
         } else {

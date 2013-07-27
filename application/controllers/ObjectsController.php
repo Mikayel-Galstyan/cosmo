@@ -15,7 +15,13 @@ class ObjectsController extends SecureController {
     private $costMax = null;
     
     public function indexAction() {
-        $service = new Service_ObjectType();
+        $serviceType = new Service_ObjectType();
+        $this->view->types = $serviceType->getAll();
+		$servicePublisher = new Service_Publisher();
+        $this->view->publishers = $servicePublisher->getAll();
+		$serviceShops = new Service_ShopList();
+        $this->view->shopList = $serviceShops->getAll();
+		$service = new Service_ObjectType();
         $this->view->items = $service->getAll();
     }
     
@@ -61,6 +67,16 @@ class ObjectsController extends SecureController {
         }
        
     }
+	
+	public function overviewAction(){
+		$id = $this->id;
+		if($id){
+			$service = new Service_Objects();
+			$this->view->item = $service->getById($id);
+		}else{
+			
+		}
+	}
     
     public function saveAction(){
         $this->_helper->viewRenderer->setNoRender(true);
@@ -76,6 +92,7 @@ class ObjectsController extends SecureController {
         $item->setPublisherId($this->publisherId);
         $item->setCost($this->cost);
         $item->setObjectTypeId($this->objectTypeId);
+		$item->setDescription($this->description);
         $item->setShopListId($this->shopListId);
         
         $path = $_FILES['path'];

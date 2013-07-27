@@ -1,15 +1,14 @@
 <?php
 require_once ('SecureController.php');
 
-class PublisherController extends SecureController {
+class ShoplistController extends SecureController {
     
     private $id = null;
     private $name = null;
     private $address = null;
     private $phone = null;
-    private $site = null;
-    private $clicks = null;
-    private $userId = null;
+    private $description = null;
+    private $publisherId = null;
     private $order = null;
 
     public function indexAction() {
@@ -26,9 +25,9 @@ class PublisherController extends SecureController {
         if($this->getAuthUser() && $this->getAuthUser()->getStatus()== Service_User::PUBLISHER_ROLE){
             $this->view->isPublisher = true;
             if($id){
-                $service = new Service_Publisher();
-                $publisher = $service->getById($id);
-                $this->view->item = $publisher;
+                $service = new Service_ShopList();
+                $shop = $service->getById($id);
+                $this->view->item = $shop;
             }else{
                 //$this->LOG->info($this->getUserName().' : '.self::CONTROLLER_NAME.' Controller : add Action');
             }
@@ -40,20 +39,25 @@ class PublisherController extends SecureController {
     
     public function saveAction(){
         $this->_helper->viewRenderer->setNoRender(true);
-        $userId = $this->userId;
+        /*$userId = $this->userId;*/
         $id = $this->id;
-        $service = new Service_Publisher();
+        $service = new Service_ShopList();
         if ($id != null) {
             $item = $service->getById($id);
         } else {
-            $item = new Domain_Publisher();
-            $item->setOrder(1);
+            $item = new Domain_ShopList();
+           // $item->setOrder(1);
         }
+		$sevicePublisher = new Service_Publisher();
+		$filterPublisher = new Filter_Publisher();
+		$filterPublisher->setUserId($this->getAuthUser()->getId());
+		$publisher = $sevicePublisher->getByParams($filterPublisher);
+        $publisherId = $publisher[0]->getId();
         $item->setName($this->name);
-        $item->setUserId($this->getAuthUser()->getId());
+        $item->setPublisherId($publisherId);
         $item->setAddress($this->address);
         $item->setPhone($this->phone);
-        $item->setSite($this->site);
+        $item->setDescription($this->description);
         try {
             $service->save($item);
             $this->printJsonSuccessRedirect($this->translate('success.save'),'objecttype');
@@ -66,7 +70,7 @@ class PublisherController extends SecureController {
 	public function overviewAction(){
 		$id = $this->id;
 		if($id){
-			$service = new Service_Publisher();
+			$service = new Service_ShopList();
 			$this->view->item = $service->getById($id);
 		}else{
 			
@@ -77,8 +81,8 @@ class PublisherController extends SecureController {
         $this->id = $val;
         return $this;
     }
-    public function &setUserId($val) {
-        $this->userId = $val;
+    public function &setDescription($val) {
+        $this->description = $val;
         return $this;
     }
     public function &setAddress($val) {
@@ -93,8 +97,8 @@ class PublisherController extends SecureController {
         $this->site = $val;
         return $this;
     }
-    public function &setClicks($val) {
-        $this->clicks = $val;
+    public function &setPublisherId($val) {
+        $this->publisherId = $val;
         return $this;
     }
     public function &setName($val) {

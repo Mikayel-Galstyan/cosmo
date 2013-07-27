@@ -1,0 +1,19 @@
+<div id="objectList" style="width:100%;">
+	<?php
+		foreach($this->items as $item){
+	?>	
+		<div class="fl w100 mr5">
+			<div style="text-align:center; width:100"><?php echo ($item->getName())?$item->getName():'no description';?></div>
+			<div class="r100 h200 ">
+				<div>
+					<a href="objects/<?php echo $item->getId();?>/overview"><img src="<?php echo $item->getPath();?>" class="r100" alt="<?php echo ($item->getDescription())?$item->getDescription():'no description';?>"></a>
+				</div>
+			</div>
+			<div>
+				<?php echo ($item->getCost())?$item->getCost():'no description';?>
+			</div>
+		</div>
+	<?php
+		}
+	?>
+</div>

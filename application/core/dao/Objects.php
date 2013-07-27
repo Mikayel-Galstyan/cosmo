@@ -41,10 +41,10 @@ class Dao_Objects extends Miqo_Dao_Base {
             $select->where('objectType_id = ?', $filter->getObjectTypeId());
         }
         if($filter->getCostMin()){
-            $select->where('cost >=', $filter->getCostMin());
+            $select->where('cost >= ?', $filter->getCostMin());
         }
         if($filter->getCostMax()){
-            $select->where('cost <=', $filter->getCostMax());
+            $select->where('cost <= ?', $filter->getCostMax());
         }
         $result = $this->dbTable->fetchAll($select);
     	$items = &$this->getEntities($result);

@@ -14,11 +14,16 @@ class ObjectTypeController extends SecureController {
     }
     
     public function editAction(){
-        if($this->id){
-            $service = new Service_ObjectType();
-            $this->view->item = $service->getById($this->id);
-        }else{
-            $this->view->item = null;
+		if($this->getAuthUser() && $this->getAuthUser()->getStatus()== Service_User::PUBLISHER_ROLE){
+			if($this->id){
+				$service = new Service_ObjectType();
+				$this->view->item = $service->getById($this->id);
+			}else{
+				$this->view->item = null;
+			}
+			$this->view->isPublisher = true;
+		}else{
+            $this->view->isPublisher = false;
         }
     }
     

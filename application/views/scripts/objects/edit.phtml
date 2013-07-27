@@ -1,0 +1,89 @@
+<script>
+$(function(){
+    //CustomFormElement.init();
+    //$("#ajaxForm").jqTransform();
+});
+</script>
+<?php
+    $this->setPageTitle('user.management');
+    $formatting = $this->getHelper('DataFormatting');
+?>
+<script type="text/javascript">
+    $(function(){
+    	Menu.acitvate('user');        
+    });
+</script>
+<?php
+    if($this->isPublisher){
+?>
+    <form id="ajaxForm" action="objects/save" method="post" onsubmit="Form.submit('ajaxForm'); return false;">
+        <input type="hidden" name="id" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getId()):'')?>" />
+        <input type="hidden" name="publisherId" value="<?php echo ($this->publisherId ? $this->htmlEscape($this->publisherId):'')?>" />
+        <div class="fixed_head">
+            <span class="tableTitle"><?php echo $this->translate('object'). ' // ' . ($this->item ? $this->translate('edit'): $this->translate('add')); ?></span>        
+            <table class="editTable">                    
+                <tbody>                    
+                    <tr>
+                        <td class="middle left w180"><label for="name"><?php echo $this->translate('name')?> *</label></td>
+                        <td class="middle left"><input type="text" name="name" id="name" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getName()):'')?>"/></td>                    
+                    </tr>    
+                    <tr>
+                        <td class="middle left w150"><label for="description"><?php echo $this->translate('description')?></label></td>
+                        <td class="middle left"><input type="text" name="description" id="description" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getDescription()):'')?>"/></td>
+                    </tr>
+                    <tr>
+                        <td class="middle left"><label for="cost"><?php echo $this->translate('cost')?></label></td>
+                        <td class="middle left"><input type="text" name="cost" id="cost" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getCost()):'')?>"/></td>
+                    </tr>
+                    <tr>
+                       <td class="middle left"><label for="objectTypeId"><?php echo $this->translate('select.types')?> </label></td>
+                       <td class="middle left">
+                           <div class="fl">
+								<select name="objectTypeId" id="objectTypeId">
+									<option value="">--Select--</option>
+									<?php
+										foreach($this->types as $item){
+									?>
+										<option value="<?php echo $item->getId() ?>"><?php echo $this->translate($item->getName()); ?></option>
+									<?php
+										}
+									?>
+								</select>
+							</div>
+                       </td>
+                    </tr> 
+                    <tr>
+                        <td class="middle left"><label for="shopListId"><?php echo $this->translate('select.shop')?></label></td>
+                        <td class="middle left">
+							<div class="fl">
+								<select name="shopListId" id="shopListId">
+									<option value="">--Select--</option>
+									<?php
+										foreach($this->shopList as $item){
+									?>
+										<option value="<?php echo $item->getId() ?>"><?php echo $this->translate($item->getName()); ?></option>
+									<?php
+										}
+									?>
+								</select>
+							</div>
+						</td>
+                    </tr>
+                    <tr>
+                        <td class="middle left"><label for="path"><?php echo $this->translate('object.image')?></label></td>
+                        <td class="middle left"><input type="file" name="path" id="path" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getPath()):'')?>"/></td>
+                    </tr> 
+                    <tr>
+                        <td class="middle left"></td>
+                        <td class="middle left"><input type="button" onclick="Form.submit('ajaxForm')" value="save"/></td>
+                    </tr>                     
+                </tbody>
+                <tfoot><tr><td class="h p5_0"></td></tr></tfoot>
+            </table>
+        </div> 
+    </form>
+    <?php }else{ ?>
+        <div>
+            <?php echo $this->translate('this.action.only.for.publishers');?>
+        </div>
+    <?php } ?>

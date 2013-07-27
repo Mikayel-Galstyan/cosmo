@@ -113,6 +113,7 @@ class UserController extends SecureController {
         $item->setStatus($this->status);
         $item->setFirstName($this->firstName);
         $item->setLastName($this->lastName);
+		$item->setGender($this->gender);
         //$item->setCompany($this->company);
         //$item->setCountryId($this->userSession->get('countryId'));
         if ($this->password) {

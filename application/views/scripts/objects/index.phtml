@@ -1,10 +1,10 @@
 <div>
     <form action="objects/list" name="ajaxForm" id="ajaxForm">
-        <div class="fl">
+        <div class="fl mr5">
             <select name="objectTypeId" id="objectTypeId">
                 <option value="">--Select--</option>
                 <?php
-                    foreach($this->items as $item){
+                    foreach($this->types as $item){
                 ?>
                     <option value="<?php echo $item->getId() ?>"><?php echo $this->translate($item->getName()); ?></option>
                 <?php
@@ -12,8 +12,44 @@
                 ?>
             </select>
         </div>
-        <div class="fl">
-            <input type="button" value="filter" onclick="Form.submit('ajaxForm');return false;">
+		<div class="fl mr5">
+            <select name="publisherId" id="publisherId">
+                <option value="">--Select--</option>
+                <?php
+                    foreach($this->publishers as $item){
+                ?>
+                    <option value="<?php echo $item->getId() ?>"><?php echo $this->translate($item->getName()); ?></option>
+                <?php
+                    }
+                ?>
+            </select>
+        </div>
+		<div class="fl mr5">
+            <select name="shopListId" id="shopListId">
+                <option value="">--Select--</option>
+                <?php
+                    foreach($this->shopList as $item){
+                ?>
+                    <option value="<?php echo $item->getId() ?>"><?php echo $this->translate($item->getName()); ?></option>
+                <?php
+                    }
+                ?>
+            </select>
+        </div>
+		<div class="fl mr5">
+			cost from
+		</div>
+		<div class="fl mr5">
+			<input class="w50" placeholder="min" name="costMin"/>
+		</div>
+		<div class="fl mr5">
+			to
+		</div>
+		<div class="fl mr5">
+			<input class="w50" placeholder="max" name="costMax"/>
+		</div>
+        <div class="fl mr5">
+            <input type="button" value="filter" onclick="Filter.submit('ajaxForm');return false;">
         </div>
     </form>
     <a href="objects/edit">add</a>
