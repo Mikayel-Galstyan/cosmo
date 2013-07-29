@@ -36,27 +36,32 @@
 		background:white;
 	}
 </style>
-<div>
-	<form id="addForm" name="addForm" action="lovelist/delete">
-		
-	</form>
-	<input type="button" onclick="Form.submit('addForm')" value="submit">
-</div>
-<div id="objectList" style="width:100%;">
-	<?php
-		foreach($this->items as $item){
-	?>	
-		<div class="fl w100 mr5">
-			<div class="r100">
-				<div>
-					<a href="objects/<?php echo $item->getObjectId();?>/overview"><img src="<?php echo $item->getPath();?>" class="r100"></a>
-				</div>
-			</div>
-			<div class="fr">
-				<a  name="remove" id="remove_<?php echo $item->getId();?>" class="unSelectedLoveList" onclick="LoveListDeleteObject.detectOption('remove_<?php echo $item->getId();?>')">RemoveFromList</a>
-			</div>
-		</div>
-	<?php
-		}
-	?>
-</div>
+
+<?php if($this->items){ ?>
+    <div>
+        <form id="addForm" name="addForm" action="lovelist/delete">
+            
+        </form>
+        <input type="button" onclick="Form.submit('addForm')" value="submit">
+    </div>
+    <div id="objectList" style="width:100%;">
+        <?php
+            foreach($this->items as $item){
+        ?>	
+            <div class="fl w100 mr5">
+                <div class="r100">
+                    <div>
+                        <a href="objects/<?php echo $item->getObjectId();?>/overview"><img src="<?php echo $item->getPath();?>" class="r100"></a>
+                    </div>
+                </div>
+                <div class="fr">
+                    <a  name="remove" id="remove_<?php echo $item->getId();?>" class="unSelectedLoveList" onclick="LoveListDeleteObject.detectOption('remove_<?php echo $item->getId();?>')">RemoveFromList</a>
+                </div>
+            </div>
+        <?php
+            }
+        ?>
+    </div>
+<?php }else{ ?>
+    please Login or registrate 
+<?php } ?>

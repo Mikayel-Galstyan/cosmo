@@ -1,7 +1,7 @@
 <?php
 return array (
-		'project.name' => 'TeeFlow',
-        'site.url' => 'TeeFlow.com',
+		'project.name' => 'Cosmpopoliten',
+        'site.url' => 'Cosmpopoliten.com',
 		'home' => 'Home',
 		'welcome' => 'Welcome',
 		'Manager' => 'Manager',

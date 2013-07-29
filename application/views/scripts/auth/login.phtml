@@ -1,64 +1,30 @@
-<div class="backgoundDiv">
-    <div class="loginMainDiv">
-        <div class="loginHeader">
-            <div class="loginBgLogo"></div>
-            <div class="loginBgInfo"></div>
-            <div class="loginBgLeft">
-                <a href=""><span class="swtichTo"><?php echo $this->translate('switch.to'); ?></span>
-                <span class="german"><?php echo $this->translate('german'); ?></span> </a>
-            </div>
-        </div>
-        <div class="loginHeaderBottom"></div>
-        <div class="loginFormDiv">
-            <form id="loginFrom" action="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login'));?>" method="POST"> 
-                <table>
-                    <tr>
-                        <td class="loginLabelTd" colspan="2">
-                            <label class="loginError">
-                                <?php if($this->loginfailed) { ?>    
-                                        <?php echo $this->translate('auth.failed'); ?>         			
-                                <?php } ?>	
-                            <label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="loginLabelTd">
-                            <label class="loginInfo">
-                                <?php echo $this->translate('username'); ?>
-                            <label>
-                        </td>
-                        <td class="loginInputTd">
-                            <input type="text" id="username" name="email" placeholder="Username">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="loginLabelTd">
-                            <label class="loginInfo">
-                                <?php echo $this->translate('password') ?>
-                            <label>
-                        </td>
-                        <td class="loginInputTd">
-                            <input type="password" id="password" name="password" placeholder="Password">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="loginLabelTd">
-                            <a href="user/edit">Registration</a>
-                        </td>
-                        <td class="loginInputTd">
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="loginLabelTd">
-                            
-                        </td>
-                        <td class="loginInputTd">
-                            <input type="submit" class="loginButton" value="<?php echo $this->translate('log.in') ?>">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-    </div>                
-</div>
+<form action="auth/login" method="POST" id="loginForm" name="loginForm">
+    <div id="loginInfo">  
+    <?php
+        if($this->name){
+            echo $this->translate('hi').'  '.$this->name; ?>
+        <input  class="fl ml5 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/logout");Filter.submit("loginForm","loginInfo");'class="loginButton" value="<?php echo $this->translate('log.out') ?>">
+            
+     <?php   }else {
+     ?>
+                <div  class="fl ml5 mt5">
+                    <input type="text" id="username" name="email" placeholder="Username">
+                </div>
+                <div  class="fl ml5 mt5">    
+                    <input type="password" id="password" name="password" placeholder="Password" >
+                </div>            
+                <input  class="fl ml5 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/login");Filter.submit("loginForm","loginInfo");'class="loginButton" value="<?php echo $this->translate('log.in') ?>">
+           
+            <a href="user/edit" class="ml5 mt5">Registration</a>
+            <label class="loginError fl">
+                <?php 
+                if($this->loginfailed) { 
+                    echo $this->translate('auth.failed'); 
+                } 
+                ?>	
+            </label>
+    <?php
+        }
+    ?>
+    </div>
+ </form>

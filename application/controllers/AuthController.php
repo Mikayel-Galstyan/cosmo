@@ -1,14 +1,14 @@
 <?php
-require_once ('ControllerActionSupport.php');
+require_once ('SecureController.php');
 
-class AuthController extends ControllerActionSupport {
+class AuthController extends SecureController {
     
     private $email = null;
     private $password = null;
 
     public function init() {
         parent::init();    
-        $this->_helper->layout()->setLayout('login');
+        $this->_helper->layout()->setLayout('layout');
         $this->LOG = Zend_Registry::get('log');
     }
     
@@ -18,11 +18,13 @@ class AuthController extends ControllerActionSupport {
     
     public function loginAction() {
         if($this->_request->isXmlHttpRequest()) {
-            $this->javascript()->redirect('auth');
+            //$this->javascript()->redirect('index');
         }
         $userSession = new Miqo_Session_Base();
         if ($userSession->get('authUser')) {
-            return $this->_redirect('index');
+            $this->view->name = $userSession->get('authUser')->getFirstName();
+        }else{
+            
         }
         $request = $this->getRequest();        
         if ($request->isPost()) {
@@ -30,7 +32,7 @@ class AuthController extends ControllerActionSupport {
             $password = $this->password;
             if (! empty($email) && ! empty($password)) {
                 $userService = new Service_User();
-                $user = $userService->authenticate($email, $password);                
+                $user = $userService->authenticate($email, $password);              
                 if ($user != null) {                    
                     $this->loginSuccess($user, $userSession);
                 }
@@ -49,12 +51,12 @@ class AuthController extends ControllerActionSupport {
             $userSession->set( 'countryId', $user->getCountryId());
         }
         $this->LOG->info('Success login with Username -> "' . $user->getEmail() . '"');
-        return $this->_redirect('index');
+        return $this->_redirect('auth/login');
     }
 
     public function logoutAction() {
-        Zend_Session::destroy(true);
-        $this->_redirect('auth');
+        @Zend_Session::destroy(true);
+        return $this->_redirect('auth/login');
     }
 
     public function &setEmail($val) {
