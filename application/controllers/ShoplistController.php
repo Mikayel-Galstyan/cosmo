@@ -12,11 +12,17 @@ class ShoplistController extends SecureController {
     private $order = null;
 
     public function indexAction() {
-        
+        $publisherService = new Service_Publisher();
+		$items = $publisherService->getAll();
+		$this->view->items = $items;
     }
     
     public function listAction() {
-        
+        $servie=new Service_ShopList();
+		$filter = new Filter_ShopList();
+		$filter->setPublisherId($this->publisherId);
+		$items = $servie->getByParams($filter);
+		$this->view->items = $items; 
     }
     
     public function editAction(){

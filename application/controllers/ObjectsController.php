@@ -126,6 +126,10 @@ class ObjectsController extends SecureController {
         $this->objectTypeId = $val;
         return $this;
     }
+	public function &setShopListId($val) {
+        $this->shopListId = $val;
+        return $this;
+    }
     public function &setPublisherId($val) {
         $this->publisherId = $val;
         return $this;

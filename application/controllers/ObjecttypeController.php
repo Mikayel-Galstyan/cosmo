@@ -9,8 +9,8 @@ class ObjectTypeController extends SecureController {
     }
     
     public function listAction() {
-        /*$service = new Service_Objects();
-        $this->view->items = $service->getAll();*/
+        $service = new Service_ObjectType();
+        $this->view->items = $service->getAll();
     }
     
     public function editAction(){

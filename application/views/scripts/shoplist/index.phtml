@@ -1,69 +1,34 @@
 <?php 
-    $this->setPageTitle('objets'); 
+    $this->setPageTitle('Shop List'); 
     $formatting = $this->getHelper('DataFormatting');
 ?>
-<script>
-$(function(){
-    Grid.init('club/list');
-    callback = function(){
-        var options = { 
-                dataType:'json',
-                success: function(result) { 
-                	if (Notify.show(result) == true){                     	
-                        //hiding popup box
-                        Popup.hide();
-                        //show loader
-                        Mask.showLoader();                                                        
-                        //reload page
-                        Url.load('club');                    
-                    }
-                }
-            };             
-        $('#ajaxFormDeleteClub').ajaxSubmit(options);               
-    }; 
-    init = {buttons:[{name:'<?php echo $this->translate('yes') ?>',callback: callback}]};
-    clubDelete = new Popup(init);
-    removeForm.init('club/delete','deleteFormDiv');
-    $(document).ready(function(){
-        $(".selectChange select").on("change",function(){
-            Form.changeAction('siteFilter','inventory/siteslist');
-            Filter.submit('siteFilter','sitelist');
-        });
-    });
-});
 
-</script>
-<div id="deleteFormDiv">
-
-</div>
 <div class="page_title">
-    <div><?php echo $this->translate('clubs');?></div>
+    <div><?php echo $this->translate('shopList');?></div>
 </div>
 
 <div class="table_wrapper ml20 mt20">
-
+	 <form action="shoplist/list" name="ajaxForm" id="ajaxForm">
+		<div class="mr5 fl">
+			<select name="publisherId" id="publisherId">
+				<option value="">--Select--</option>
+				<?php
+					foreach($this->items as $item){
+				?>
+					<option value="<?php echo $item->getId() ?>"><?php echo $this->translate($item->getName()); ?></option>
+				<?php
+					}
+				?>
+			</select>
+		</div>
+		<div>
+			<input type="button" onclick="Filter.submit('ajaxForm');return false;" value="filter">
+		</div>
+	</form>
     <table class="mt20">
     	<tbody>
-    		<tr class="head">
-                <td>
-                    <table class="tlf">
-                        <colgroup>
-                            <col class="w48">
-                            <col class="w75">
-                            <col class="">
-                        </colgroup>
-                        <thead class="zebra header_zebra">
-                            <tr>
-                                <th class="middle left br0" title=""><span></span></th>
-                                <th class="middle left header pl32" id="id" onclick="Grid.sort('id')" title="<?php echo $val=$formatting->toUppercase($this->translate('id')); ?>"><span><?php echo $val; ?></span></th>
-                                <th class="middle left header bl0" id="name" onclick="Grid.sort('name')" title="<?php echo $val=$formatting->toUppercase($this->translate(array('club','name'))); ?>"><span><?php echo $val; ?></span></th>
-                            </tr>
-                        </thead>
-                    </table>
-                </td>
-            </tr>
     		<tr class='panel'>
-    			<td><?php echo $this->action('list', 'publisher');?></td>
+    			<td><?php echo $this->action('list', 'shoplist');?></td>
     		</tr>
     	</tbody>
     </table>

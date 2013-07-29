@@ -60,7 +60,11 @@ $(function(){
                     <td class="middle left"><label for="passwordConfirm"><?php echo $this->translate('password.confirm')?> *</label></td>
                     <td class="middle left"><input type="password" name="passwordConfirm" id="passwordConfirm" value=""/></td>
                 </tr>
-               <?php }?>     
+               <?php }?>
+				<tr>
+                    <td class="middle left"><label for="path"><?php echo $this->translate('image')?> *</label></td>
+                    <td class="middle left"><input type="file" name="path" id="path" value="<?php echo ($this->img ? $this->htmlEscape($this->img->getPath()):'')?>"/></td>
+                </tr>			   
                 <tr>
                     <td class="middle left"><?php echo $formatting->space(); ?></td>
                     <td class="middle left">

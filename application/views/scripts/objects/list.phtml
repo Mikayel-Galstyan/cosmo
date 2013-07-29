@@ -1,16 +1,66 @@
+<script>
+	LoveListObject = {
+		objectsCount : 0,
+		addLovleList : function(id){
+			$('#'+id).attr('class','selectedLoveList');
+			//$('#'+id).attr('onclick','LoveListObject.deleteFromSaveList("'+id+'")');
+			id = id.replace('add_','');
+			str = '<input type="hidden" id="template_'+id+'" name="objectsIds[]" value="'+id+'"/>';
+			$('#addForm').append(str);console.log(str);
+			LoveListObject.objectsCount++;
+		},
+		
+		deleteFromSaveList: function(id){
+			$('#'+id).attr('class','unSelectedLoveList');
+			id = id.replace('add_','');
+			$('#template_'+id).remove();
+			LoveListObject.objectsCount--;
+		},
+		
+		detectOption : function(id){
+			if($('#'+id).attr('class')=='selectedLoveList'){
+				LoveListObject.deleteFromSaveList(id);
+			}else{
+				LoveListObject.addLovleList(id);
+			}
+		}
+	}
+	$(function(){
+		function addLovleList(id){
+			
+		}
+	});
+</script>
+<style>
+	.selectedLoveList{
+		background:red;
+	}
+	.unSelectedLoveList{
+		background:white;
+	}
+</style>
+<div>
+	<form id="addForm" name="addForm" action="lovelist/save">
+		
+	</form>
+	<input type="button" onclick="Form.submit('addForm')" value="submit">
+</div>
 <div id="objectList" style="width:100%;">
 	<?php
 		foreach($this->items as $item){
 	?>	
 		<div class="fl w100 mr5">
 			<div style="text-align:center; width:100"><?php echo ($item->getName())?$item->getName():'no description';?></div>
-			<div class="r100 h200 ">
+			<div class="r100">
 				<div>
 					<a href="objects/<?php echo $item->getId();?>/overview"><img src="<?php echo $item->getPath();?>" class="r100" alt="<?php echo ($item->getDescription())?$item->getDescription():'no description';?>"></a>
 				</div>
 			</div>
-			<div>
-				<?php echo ($item->getCost())?$item->getCost():'no description';?>
+			<div class="fl">
+				<?php echo ($item->getCost())?$item->getCost():'0';?>$
+			</div>
+			<div class="fr">
+				<a  name="add" id="add_<?php echo $item->getId();?>" class="unSelectedLoveList" onclick="LoveListObject.detectOption('add_<?php echo $item->getId();?>')">addToList</a>
 			</div>
 		</div>
 	<?php

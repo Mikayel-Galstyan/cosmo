@@ -10,13 +10,20 @@ class Dao_UserImage extends Miqo_Dao_Base {
     protected $entityClass = 'Domain_UserImage';
 
     public function __construct() {
-        $this->dbTable = new Dao_DbTable_Objects();
+        $this->dbTable = new Dao_DbTable_UserImage();
     }
 	
+	public function getByUserId($id) {
+        $items = $this->dbTable->fetchAll(
+                array('user_id = ?' => $id)
+        );
+       $items = $this->getEntities($items);
+       return $items;
+    }
     
     
     public function &getOrderedList(Filter_Object $filter = null) {
-    	$select = $this->dbTable->select()->from(array('c' => Dao_DbTable_List::UserImage), array('id AS id', 'name AS name'));
+    	$select = $this->dbTable->select()->from(array('c' => Dao_DbTable_List::USERIMAGE), array('id AS id', 'name AS name'));
     	if($filter) {
     		$select->order( array($filter->getOrder().' '.$filter->getSort()));
     	} else {

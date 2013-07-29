@@ -17,7 +17,10 @@ class PublisherController extends SecureController {
     }
     
     public function listAction() {
-        
+        $servie=new Service_Publisher();
+		$filter = new Filter_Publisher();
+		$items = $servie->getByParams($filter);
+		$this->view->items = $items; 
     }
     
     public function editAction(){

@@ -1,3 +1,18 @@
-<?php
-   // var_dump($this->items);
-?>
+<div>
+	<?php 
+		foreach($this->items as $item){
+	?>
+		<div class="mr5 mt5 fl">
+			<a class="link" href="publisher/<?php echo $item->getId() ?>/overview">
+				<div class="name">
+					<?php echo $item->getName(); ?>
+				</div>
+				<div class="name">
+					<img src="<?php echo $item->getName(); ?>" class="w100"/>
+				</div>
+			</a>
+		</div>
+	<?php
+		}
+	?>
+</div>

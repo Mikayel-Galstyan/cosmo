@@ -1,3 +1,15 @@
-<?php
-    var_dump($this->items);
-?>
+<div>
+	<?php 
+		foreach($this->items as $item){
+	?>
+		<div class="mr5 mt5">
+			<a class="link" href="objecttype/<?php echo $item->getId() ?>/edit">
+				<div class="name">
+					<?php echo $item->getName(); ?>
+				</div>
+			</a>
+		</div>
+	<?php
+		}
+	?>
+</div>

@@ -90,7 +90,6 @@ function Ajax() {
     };
     
     function callback (func) {
-    	Polygon.clean();
     	if(typeof func == 'function'){                
     		func.call(this);
         } 

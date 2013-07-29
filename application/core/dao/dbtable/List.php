@@ -5,8 +5,8 @@ class Dao_DbTable_List {
     const OBJECTTYPE   = 'objectType';
     const SHOPLIST     = 'shopList';
     const LOVELIST     = 'loveList';
-    const USERIMAGE    = 'userImage';
-    const SHOPIMAGE        = 'shopImage';
+    const USERIMAGE    = 'userimage';
+    const SHOPIMAGE    = 'shopimage';
     const USERS        = 'users';   
     const PUBLISHER    = 'publishers';    
 }
