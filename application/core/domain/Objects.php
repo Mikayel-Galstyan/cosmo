@@ -41,7 +41,11 @@ class Domain_Objects extends Miqo_Domain_AbstractEntity {
      * @var int
      */
     protected $population = null;
-    
+    /**
+     *
+     * @var int
+     */
+	protected $gender;
     
     
     public function getName() {
@@ -66,11 +70,19 @@ class Domain_Objects extends Miqo_Domain_AbstractEntity {
         return $this;
     }
     
-     public function getCost() {
+    public function getCost() {
         return $this->cost;
     }
     public function &setCost($val) {
         $this->cost = $val;
+        return $this;
+    }
+	public function getGender() {
+        return $this->gender;
+    }
+	
+    public function &setGender($val) {
+        $this->gender = $val;
         return $this;
     }
     public function getPath() {

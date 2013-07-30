@@ -69,6 +69,18 @@ $(function(){
 							</div>
 						</td>
                     </tr>
+					<tr>
+                        <td class="middle left"><label for="shopListId"><?php echo $this->translate('select.gender')?></label></td>
+                        <td class="middle left">
+							<div class="fl">
+								<select name="shopListId" id="shopListId">
+									<option value="1">male</option>
+									<option value="2">female</option>
+									
+								</select>
+							</div>
+						</td>
+                    </tr>
                     <tr>
                         <td class="middle left"><label for="path"><?php echo $this->translate('object.image')?></label></td>
                         <td class="middle left"><input type="file" name="path" id="path" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getPath()):'')?>"/></td>

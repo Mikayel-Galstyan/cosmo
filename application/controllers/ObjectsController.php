@@ -13,6 +13,7 @@ class ObjectsController extends SecureController {
     private $cost = null;
     private $costMin = null;
     private $costMax = null;
+	private $for = null;
     
     public function indexAction() {
         $serviceType = new Service_ObjectType();
@@ -33,6 +34,10 @@ class ObjectsController extends SecureController {
         $filter->setShopListId($this->shopListId);
         $filter->setCostMin($this->costMin);
         $filter->setCostMax($this->costMax);
+		if($this->getAuthUser() && !$this->for){
+			$this->for = $this->getAuthUser()->getGender();
+		}
+		$filter->setGender($this->for);
         $service = new Service_Objects();
         $items = $service->getByParams($filter);
         $this->view->items = $items;
@@ -94,7 +99,7 @@ class ObjectsController extends SecureController {
         $item->setObjectTypeId($this->objectTypeId);
 		$item->setDescription($this->description);
         $item->setShopListId($this->shopListId);
-        
+        $item->setGender($this->for);
         $path = $_FILES['path'];
         $email = $this->getAuthUser()->getEmail();
         $type = $item->getObjectTypeId();
@@ -156,6 +161,10 @@ class ObjectsController extends SecureController {
     }
     public function &setCost($val) {
         $this->cost = $val;
+        return $this;
+    }
+	public function &setFor($val) {
+        $this->for = $val;
         return $this;
     }
     

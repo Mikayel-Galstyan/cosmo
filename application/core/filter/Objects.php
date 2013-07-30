@@ -30,8 +30,21 @@ class Filter_Objects {
      * @var int
      */
     protected $population = null;
+	/**
+     *
+     * @var int
+     */
+    protected $gender = null;
     
     
+	public function getGender() {
+        return $this->for;
+    }
+    public function &setGender($val) {
+        $this->for = $val;
+        return $this;
+    }
+	
     public function getPopulation() {
         return $this->population;
     }
