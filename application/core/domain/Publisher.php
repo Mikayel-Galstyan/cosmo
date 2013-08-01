@@ -6,6 +6,11 @@ class Domain_Publisher extends Miqo_Domain_AbstractEntity {
      * @var string
      */
     protected $name = null;
+	/**
+     *
+     * @var string
+     */
+    protected $status = null;
     /**
      *
      * @var string
@@ -53,6 +58,14 @@ class Domain_Publisher extends Miqo_Domain_AbstractEntity {
     }
     public function &setName($val) {
         $this->name = $val;
+        return $this;
+    }
+	
+	public function getStatus() {
+        return $this->status;
+    }
+    public function &setStatus($val) {
+        $this->status = $val;
         return $this;
     }
     

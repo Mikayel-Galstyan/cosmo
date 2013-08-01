@@ -11,6 +11,7 @@ class PublisherController extends SecureController {
     private $clicks = null;
     private $userId = null;
     private $order = null;
+	private $status = null;
 
     public function indexAction() {
         
@@ -105,6 +106,10 @@ class PublisherController extends SecureController {
         return $this;
     }
     public function &setOrder($val) {
+        $this->order = $val;
+        return $this;
+    }
+	public function &setStatus($val) {
         $this->order = $val;
         return $this;
     }

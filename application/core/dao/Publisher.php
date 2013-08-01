@@ -5,6 +5,7 @@ class Dao_Publisher extends Miqo_Dao_Base {
     protected $columnAliases = array (
             'id' => 'id',
             'name' => 'name',
+			'status' => 'status',
     		'order' => 'order',
             'address' => 'address',
             'phone' => 'phone',

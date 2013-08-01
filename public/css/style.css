@@ -3,8 +3,6 @@
 @import url("reset.css");
 @import url("const.css");
 @import url("icon.css");
-@import url("table.css");
-
 @import url("notifications.css");
 @import url("button.css");
 @import url("popup.css");
@@ -15,20 +13,55 @@
 	position:relative;
 	height:100px;
 	width:100%;
+	background:gray;
 }
 
 /* Panel
 ---------------------------------------------------------------------------------------------------*/
+.registr{
+	font-size:10px;
+}
 .panel{
     position: relative;
-    background-color: #fff;
+	margin-top: 10px;
+	border-radius:5;
 }
 tr[name=FillRateZoneClick] td
 {
     cursor:pointer; 
 }
-
-
+body{
+	background : rgb(243, 243, 243);
+}
+.lefthead{
+	margin-top: 10px;
+	background:rgba(185, 185, 185, 0.48);
+	width:150px;
+	height:100%;
+	float:left;
+	border-radius:5;
+}
+.nav>div{
+	width:135px;
+	border-bottom:1px solid rgb(190, 190, 190);
+	font-size:12px;
+}
+.nav>div:hover{
+	width:135px;
+	border-bottom:1px solid rgb(129, 129, 129);
+	font-size:12px;
+	background: silver;
+}
+.nav>div>a{
+	padding:5px;
+	display:block;
+	width:130px;
+	height:21px;
+	border:0px;
+}
+.nav .selected{
+	
+}
 /* Float
 ---------------------------------------------------------------------------------------------------*/
 .fl{
@@ -80,7 +113,7 @@ tr[name=FillRateZoneClick] td
 /*links
 -----------------------------------*/
 .link{
-    color: black;
+    color: gray;
     text-decoration:none;
     cursor:pointer;
 }

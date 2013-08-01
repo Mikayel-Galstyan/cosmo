@@ -6,23 +6,27 @@
         <input  class="fl ml5 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/logout");Filter.submit("loginForm","loginInfo");' class="loginButton" value="<?php echo $this->translate('log.out') ?>">
             
      <?php   }else {
-     ?>
-                <div  class="fl ml5 mt5">
-                    <input type="text" id="username" name="email" placeholder="Username">
-                </div>
-                <div  class="fl ml5 mt5">    
-                    <input type="password" id="password" name="password" placeholder="Password" >
-                </div>            
-                <input  class="fl ml5 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/login");Filter.submit("loginForm","loginInfo");'class="loginButton" value="<?php echo $this->translate('log.in') ?>">
-           
-            <a href="user/edit" class="ml5 mt5">Registration</a>
-            <label class="loginError fl">
-                <?php 
-                if($this->loginfailed) { 
-                    echo $this->translate('auth.failed'); 
-                } 
-                ?>	
-            </label>
+     ?>			
+			<label class="loginError fl">
+				<?php 
+				if($this->loginfailed) { 
+					echo $this->translate('auth.failed'); 
+				} 
+				?>	
+			</label>
+			<div  class=" mt5">
+				<input type="text" id="username" class="w120" name="email" placeholder="Username">
+			</div>
+			<div  class=" mt5">    
+				<input type="password" id="password" name="password" placeholder="Password" class="w120">
+			</div>
+			<div class="fl">	
+				<input  class="mr5 w50 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/login");Filter.submit("loginForm","loginInfo");'class="loginButton" value="<?php echo $this->translate('log.in') ?>">
+			</div>
+			<div class="fl">
+				<a href="user/edit" class="ml5 mt5 link registr">Registration</a>
+			</div>
+			
     <?php
         }
     ?>

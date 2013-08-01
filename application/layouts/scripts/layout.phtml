@@ -31,28 +31,32 @@
     </head>
 <body>
     <div class="page_wrapper">
-		<div class="fl ml5 mt5">
-			<a href="objects" class="link"><?php echo $this->translate('objects')?></a>
-		</div>
-		<div class="fl ml5 mt5">
-			<a href="objecttype" class="link"><?php echo $this->translate('objecttype')?></a>
-		</div>
-		<div class="fl ml5 mt5">
-			<a href="lovelist" class="link"><?php echo $this->translate('lovelist')?></a>
-		</div>
-		<div class="fl ml5 mt5">
-			<a href="publisher" class="link"><?php echo $this->translate('publisher')?></a>
-		</div>
-		<div class="fl ml5 mt5">
-			<a href="shoplist" class="link"><?php echo $this->translate('shoplist')?></a>
-		</div>
-		<div class="fl ml5 mt5">
-			 <?php echo $this->action("login", "auth"); ?>
-		</div>
 	</div>
 	<div class="content_wrapper">
 		<div class="content_container">
-			<div class="panel">
+			<div class="leftHead">
+				<div class="ml5">
+					 <?php echo $this->action("login", "auth"); ?>
+				</div>
+				<div class="nav fl mt5 ml5">
+					<div class="ml5">
+						<a href="objects" class="link"><?php echo $this->translate('objects')?></a>
+					</div>
+					<!--<div class="ml5">
+						<a href="objecttype" class="link"><?php echo $this->translate('objecttype')?></a>
+					</div>-->
+					<div class="ml5">
+						<a href="lovelist" class="link"><?php echo $this->translate('lovelist')?></a>
+					</div>
+					<div class="ml5">
+						<a href="publisher" class="link"><?php echo $this->translate('publisher')?></a>
+					</div>
+					<div class="ml5">
+						<a href="shoplist" class="link"><?php echo $this->translate('shoplist')?></a>
+					</div>
+				</div>
+			</div>
+			<div class="panel fl ml20">
 					 <?php echo $this->layout()->content; ?>
 			</div>
 		</div>
