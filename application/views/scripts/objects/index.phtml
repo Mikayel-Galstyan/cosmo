@@ -52,7 +52,9 @@
             <input type="button" value="filter" onclick="Filter.submit('ajaxForm');return false;">
         </div>
     </form>
-    <a href="objects/edit">add</a>
+    <?php if($this->isPublisher){ ?>
+        <a href="objects/add">add</a>
+    <?php } ?>
     <table class="mt20">
     	<tbody>
     		<tr class="head">

@@ -11,7 +11,9 @@ $(function(){
 <div id="deleteFormDiv">
 
 </div>
-<a class="link" href="objecttype/add" >add</a>
+<?php if($this->isPublisher){ ?>
+    <a class="link" href="objecttype/add" >add</a>
+<?php } ?>
 <div class="page_title">
     <div><?php echo $this->translate('objecttype');?></div>
 </div>

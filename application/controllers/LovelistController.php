@@ -12,10 +12,12 @@ class LovelistController extends SecureController {
     }
     
     public function listAction() {
+        $this->view->isAuth = false;
         if($this->getAuthUser()){
             $service = new Service_LoveList();
             $items = $service->getByUserId($this->getAuthUser()->getId());
             $this->view->items = $items;
+            $this->view->isAuth = true;
         }
     }
 	

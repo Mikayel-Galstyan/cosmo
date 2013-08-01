@@ -24,6 +24,11 @@ class ObjectsController extends SecureController {
         $this->view->shopList = $serviceShops->getAll();
 		$service = new Service_ObjectType();
         $this->view->items = $service->getAll();
+        if($this->getAuthUser() && $this->getAuthUser()->getStatus()== Service_User::PUBLISHER_ROLE){
+            $this->view->isPublisher = true;
+        }else{
+            $this->view->isPublisher = false;
+        }
     }
     
     public function listAction() {

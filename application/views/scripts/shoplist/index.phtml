@@ -8,7 +8,10 @@
 </div>
 
 <div class="table_wrapper ml20 mt20">
-	 <form action="shoplist/list" name="ajaxForm" id="ajaxForm">
+    <?php if($this->isPublisher){ ?>
+        <a href="shoplist/add">add</a>
+    <?php } ?>    
+	<form action="shoplist/list" name="ajaxForm" id="ajaxForm">
 		<div class="mr5 fl">
 			<select name="publisherId" id="publisherId">
 				<option value="">--Select--</option>

@@ -2,8 +2,8 @@
     <div id="loginInfo">  
     <?php
         if($this->name){
-            echo $this->translate('hi').'  '.$this->name; ?>
-        <input  class="fl ml5 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/logout");Filter.submit("loginForm","loginInfo");'class="loginButton" value="<?php echo $this->translate('log.out') ?>">
+            echo '<span class="fl">'.$this->translate('hi').'  '.$this->name.'</span>'; ?>
+        <input  class="fl ml5 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/logout");Filter.submit("loginForm","loginInfo");' class="loginButton" value="<?php echo $this->translate('log.out') ?>">
             
      <?php   }else {
      ?>

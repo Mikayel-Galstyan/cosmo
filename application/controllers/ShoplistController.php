@@ -15,6 +15,11 @@ class ShoplistController extends SecureController {
         $publisherService = new Service_Publisher();
 		$items = $publisherService->getAll();
 		$this->view->items = $items;
+        if($this->getAuthUser() && $this->getAuthUser()->getStatus()== Service_User::PUBLISHER_ROLE){
+            $this->view->isPublisher = true;
+        }else{
+            $this->view->isPublisher = false;
+        }
     }
     
     public function listAction() {
