@@ -1,19 +1,26 @@
+<script>
+	$(function(){
+		
+	});
+</script>
 <form action="auth/login" method="POST" id="loginForm" name="loginForm">
     <div id="loginInfo">  
     <?php
         if($this->name){
             echo '<span class="fl">'.$this->translate('hi').'  '.$this->name.'</span>'; ?>
-        <input  class="fl ml5 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/logout");Filter.submit("loginForm","loginInfo");' class="loginButton" value="<?php echo $this->translate('log.out') ?>">
+			<input  class="fl ml5 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/logout");Filter.submit("loginForm","loginInfo");' class="loginButton" value="<?php echo $this->translate('log.out') ?>">
             
      <?php   }else {
-     ?>			
-			<label class="loginError fl">
-				<?php 
-				if($this->loginfailed) { 
-					echo $this->translate('auth.failed'); 
-				} 
-				?>	
-			</label>
+     ?>		
+			<div>
+				<label class="mt5 loginError">
+					<?php 
+					if($this->loginfailed) { 
+						echo $this->translate('auth.failed'); 
+					} 
+					?>	
+				</label>
+			</div>	
 			<div  class=" mt5">
 				<input type="text" id="username" class="w120" name="email" placeholder="Username">
 			</div>

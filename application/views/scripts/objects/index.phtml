@@ -1,6 +1,6 @@
 <script>
 	$(function(){
-		$('.objectTypeLinks>a').click(function(){
+		$('.objectsTypesLink>a').click(function(){
 			$('#objectTypeId').attr('value',$(this).attr('data-id'));
 			Filter.submit('ajaxForm');
 		});
@@ -58,15 +58,6 @@
     	<tbody>
     		<tr class="head">
                 <td>
-					<div class="objectTypeLinks mt5">
-						<?php 
-							foreach($this->types as $type){
-						?>
-							<a class="link ml5" name="objectTypeLink" data-id="<?php echo $type->getId(); ?>"><?php echo $type->getName(); ?></a>
-						<?php
-							}
-						?>
-					</div>
                 </td>
             </tr>
     		<tr class='panel'>

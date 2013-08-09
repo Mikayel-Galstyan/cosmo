@@ -4,14 +4,14 @@
 @import url("const.css");
 @import url("icon.css");
 @import url("notifications.css");
-@import url("button.css");
 @import url("popup.css");
 @import url("addForm.css");
+@import url("jqtransform.css");
 /* Header
 ---------------------------------------------------------------------------------------------------*/
 .page_wrapper{
 	position:relative;
-	height:100px;
+	height:50px;
 	width:100%;
 	background:gray;
 }
@@ -37,9 +37,13 @@ body{
 	margin-top: 10px;
 	background:rgba(185, 185, 185, 0.48);
 	width:150px;
-	height:100%;
+	height:auto;
 	float:left;
 	border-radius:5;
+	padding-bottom:15px;
+}
+.forFInd{
+	display:none;
 }
 .nav>div{
 	width:135px;
@@ -47,6 +51,9 @@ body{
 	font-size:12px;
 }
 .nav>div:hover{
+	-webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow:    0px 1px 0px rgba(0, 0, 0, 0.75);
+	box-shadow:         0px 1px 0px rgba(0, 0, 0, 0.75);
 	width:135px;
 	border-bottom:1px solid rgb(129, 129, 129);
 	font-size:12px;
@@ -60,7 +67,7 @@ body{
 	border:0px;
 }
 .nav .selected{
-	
+	background: silver;
 }
 /* Float
 ---------------------------------------------------------------------------------------------------*/
@@ -87,7 +94,6 @@ body{
 .border{
     border: 1px solid #888;
 }
-
 /* Errors classes 
 ---------------------------------------------------------------------------------------------------*/
 .error-message{

@@ -17,6 +17,7 @@ var Util = new Util();
 var Coordinates = new Coordinates();
 var Grid = new Grid();
 var CustomForm = new CustomForm();
+
 var removeForm = new RemoveForm();
 var Slider = new Slider();
 var PolygonMenu = new PolygonMenu();

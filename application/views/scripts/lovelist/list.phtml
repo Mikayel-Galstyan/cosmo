@@ -26,6 +26,11 @@
 		}
 	}
 </script>
+<script>
+$(function(){
+	Cosmo_object.init();
+});
+</script>
 <style>
 	.selectedLoveList{
 		cursor:pointer;
@@ -51,7 +56,8 @@
             <div class="fl w100 mr5">
                 <div class="r100">
                     <div>
-                        <a href="objects/<?php echo $item->getObjectId();?>/overview"><img src="<?php echo $item->getPath();?>" class="r100"></a>
+                        <!-- <a href="objects/<?php echo $item->getObjectId();?>/overview"><img src="<?php echo $item->getPath();?>" class="r100"></a>-->
+						<img src="<?php echo $item->getPath();?>" class="r100" id="<?php echo $item->getObjectId();?>">
                     </div>
                 </div>
                 <div class="fr">
