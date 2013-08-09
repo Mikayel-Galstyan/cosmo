@@ -11,20 +11,20 @@
 				$('.objectsTypesLink').show(500);
 			}
 		});
-		$('.publisherListLink').click(function(){
+		/*$('.publisherListLink').click(function(){
 			if(selected != 'publisherListLink'){
 				selected = 'publisherListLink';
 				$('.forFInd').hide(500);
 				$('.publisherLinkDiv').show(500);
 			}
-		});
-		$('.shopListLink').click(function(){
+		});*/
+		/*$('.shopListLink').click(function(){
 			if(selected != 'shopListLink'){
 				selected = 'shopListLink';
 				$('.forFInd').hide(500);
 				$('.shopLinkDiv').show(500);
 			}
-		});
+		});*/
 		
 	});
 </script>
@@ -50,7 +50,7 @@
 	<div class="ml5 publisherListLink">
 		<a href="publisher" class="link"><?php echo $this->translate('publisher')?></a>
 	</div>
-	<?php 
+	<!--<?php 
 	foreach($this->publishers as $publisher){
 	?>
 		<div class="ml5 publisherLinkDiv forFInd">
@@ -58,11 +58,11 @@
 		</div>
 	<?php
 	}
-	?>
+	?>-->
 	<div class="ml5 shopListLink">
 		<a href="shoplist" class="link"><?php echo $this->translate('shoplist')?></a>
 	</div>
-	<?php
+	<!--<?php
 	foreach($this->shopList as $item){
 	?>
 		<div class="ml5 shopLinkDiv forFInd">
@@ -70,5 +70,5 @@
 		</div>
 	<?php
 	}
-	?>
+	?>-->
 </div>

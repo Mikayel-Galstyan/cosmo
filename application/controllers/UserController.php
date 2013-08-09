@@ -104,13 +104,13 @@ class UserController extends SecureController {
         $this->_helper->viewRenderer->setNoRender(true);
         $id = $this->id;
         $service = new Service_User();
-		$seviceImg = new Service_UserImage();
+		//$seviceImg = new Service_UserImage();
         if ($id != null) {
             $item = $service->getById($id);
-			$img = $seviceImg->getByUserId($id);
+			//$img = $seviceImg->getByUserId($id);
         } else {
             $item = new Domain_User();
-			$img = new Domain_UserImage();
+			//$img = new Domain_UserImage();
         }
         $item->setEmail($this->email);
         $item->setStatus($this->status);
@@ -130,21 +130,22 @@ class UserController extends SecureController {
 		if(!is_dir ("users/".$this->email)){
 			mkdir("users/".$this->email);
 		}
-		$path = $_FILES['path'];
-        $email = $this->email;
-        $userfile_extn = explode(".", strtolower($path['name']));
-        do{
-            $new_name = md5(rand ( -100000 , 100000 )).'.'.$userfile_extn[1];
-            $fullPath = "users/".$email.'/'.$new_name;
-        }while(file_exists($fullPath));
-        @rename ($path['name'],$new_name);
-        move_uploaded_file ($path['tmp_name'],$fullPath);
-        $img->setPath($fullPath);
-		
+        if($_FILES['path']){
+            $path = $_FILES['path'];
+            $email = $this->email;
+            $userfile_extn = explode(".", strtolower($path['name']));
+            do{
+                $new_name = md5(rand ( -100000 , 100000 )).'.'.$userfile_extn[1];
+                $fullPath = "users/".$email.'/'.$new_name;
+            }while(file_exists($fullPath));
+            @rename ($path['name'],$new_name);
+            move_uploaded_file ($path['tmp_name'],$fullPath);
+            $item->setPath($fullPath);
+        }
         try {
             $item = $service->save($item);
-			$img->setUserId($item->getId());
-			$seviceImg->save($img);
+/*			$img->setUserId($item->getId());
+			$seviceImg->save($img);*/
             $userSession = $this->getAuthUser();
             if (!$userSession) {
                 $userSession = new Miqo_Session_Base();

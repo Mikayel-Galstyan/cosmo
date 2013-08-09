@@ -68,7 +68,7 @@ $(function(){
                 <tr>
                     <td class="middle left"><?php echo $formatting->space(); ?></td>
                     <td class="middle left">
-                        <a href="" class="button save" onclick="Form.submit('ajaxForm'); return false;"><?php echo $this->translate('save');?></a>
+                        <a href="" class="button save" onclick="Form.changeAction('ajaxForm','user/save');Form.submit('ajaxForm');Form.changeAction('ajaxForm','auth/login');Filter.submit('ajaxForm','loginInfo'); return false;"><?php echo $this->translate('save');?></a>
                     </td>
                 </tr>        
             </tbody>

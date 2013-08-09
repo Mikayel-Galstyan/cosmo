@@ -14,7 +14,13 @@ class Dao_User extends Miqo_Dao_Base {
             'status' => 'status',
             'agency_id' => 'agencyId',
             'publisher_id' => 'publisherId',
+            'path' => 'path',
             'gender' => 'gender',
+            'oauth_uid' => 'oauthUid',
+            'oauth_provider' => 'oauthProvider',
+            'twitter_oauth_token' => 'twitterOauthToken',
+            'twitter_oauth_token_secret' => 'twitterOauthTokenSecret',
+            'username' => 'username',
             'country_id' => 'countryId' );
     protected $dateColumns = array('date');
     protected $entityClass = 'Domain_User';

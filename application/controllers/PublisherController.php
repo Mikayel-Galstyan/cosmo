@@ -14,7 +14,9 @@ class PublisherController extends SecureController {
 	private $status = null;
 
     public function indexAction() {
-        
+        if (!isset($userSession)) {
+            $userSession = new Miqo_Session_Base();
+        }
     }
     
     public function listAction() {
@@ -60,7 +62,11 @@ class PublisherController extends SecureController {
         $item->setSite($this->site);
         try {
             $service->save($item);
-            $this->printJsonSuccessRedirect($this->translate('success.save'),'objecttype');
+            if (!isset($userSession)) {
+                $userSession = new Miqo_Session_Base();
+            }
+            $userSession->set('publisher', $item);
+            $this->printJsonSuccessRedirect($this->translate('success.save'),'objects');
         } catch ( Miqo_Util_Exception_Validation $vex ) {
             $errors = $this->translateValidationErrors($vex->getValidationErrors());
             $this->printJsonError($errors, $this->translate('validation.error'));

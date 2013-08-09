@@ -5,8 +5,37 @@ class Domain_User extends Miqo_Domain_AbstractEntity {
      *
      * @var string
      */
+    protected $oauthUid = null;
+    /**
+     *
+     * @var string
+     */
+    protected $oauthProvider = null;
+    /**
+     *
+     * @var string
+     */
+    protected $twitterOauthToken = null;
+    /**
+     *
+     * @var string
+     */
+    protected $twitterOauthTokenSecret = null;
+    /**
+     *
+     * @var string
+     */
+    protected $username = null;
+    /**
+     *
+     * @var string
+     */
     protected $email = null;
-    
+    /**
+     *
+     * @var string
+     */
+    protected $path = null;
     /**
      *
      * @var int
@@ -83,6 +112,54 @@ class Domain_User extends Miqo_Domain_AbstractEntity {
     }
     public function &setEmail($val) {
         $this->email = $val;
+        return $this;
+    }
+    
+    public function getOauthUid() {
+        return $this->oauthUid;
+    }
+    public function &setOauthUid($val) {
+        $this->oauthUid = $val;
+        return $this;
+    }
+    
+    public function getOauthProvider() {
+        return $this->oauthProvider;
+    }
+    public function &setOauthProvider($val) {
+        $this->oauthProvider = $val;
+        return $this;
+    }
+    
+    public function getTwitterOauthToken() {
+        return $this->twitterOauthToken;
+    }
+    public function &setTwitterOauthToken($val) {
+        $this->twitterOauthToken = $val;
+        return $this;
+    }
+    
+    public function getTwitterOauthTokenSecret() {
+        return $this->twitterOauthTokenSecret;
+    }
+    public function &setTwitterOauthTokenSecret($val) {
+        $this->twitterOauthTokenSecret = $val;
+        return $this;
+    }
+    
+    public function getUsername() {
+        return $this->username;
+    }
+    public function &setUsername($val) {
+        $this->username = $val;
+        return $this;
+    }
+    
+    public function getPath() {
+        return $this->path;
+    }
+    public function &setPath($val) {
+        $this->path = $val;
         return $this;
     }
     

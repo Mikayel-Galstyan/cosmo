@@ -7,7 +7,7 @@
     <div id="loginInfo">  
     <?php
         if($this->name){
-            echo '<span class="fl">'.$this->translate('hi').'  '.$this->name.'</span>'; ?>
+            echo '<span class="fl">'.$this->translate('hi').'  '.$this->name.'</span>'; ?><img class="fl mr5 mt5 ml5" style="height:25px;width:25px;" src="<?php echo $this->img; ?>">
 			<input  class="fl ml5 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/logout");Filter.submit("loginForm","loginInfo");' class="loginButton" value="<?php echo $this->translate('log.out') ?>">
             
      <?php   }else {
