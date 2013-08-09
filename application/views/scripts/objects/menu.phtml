@@ -1,0 +1,74 @@
+<script>
+	selected = '';
+	$(function(){
+		$('.menu').click(function(){
+			$('.forFInd').hide(500);
+		});
+		$('.objectsTypes').click(function(){
+			if(selected != 'objectsTypes'){
+				selected = 'objectsTypes';
+				$('.forFInd').hide(500);
+				$('.objectsTypesLink').show(500);
+			}
+		});
+		$('.publisherListLink').click(function(){
+			if(selected != 'publisherListLink'){
+				selected = 'publisherListLink';
+				$('.forFInd').hide(500);
+				$('.publisherLinkDiv').show(500);
+			}
+		});
+		$('.shopListLink').click(function(){
+			if(selected != 'shopListLink'){
+				selected = 'shopListLink';
+				$('.forFInd').hide(500);
+				$('.shopLinkDiv').show(500);
+			}
+		});
+		
+	});
+</script>
+<div class="nav fl mt5 ml5">
+	<div class="ml5 objectsTypes">
+		<a href="objects" class="link"><?php echo $this->translate('objects')?></a>
+	</div>
+	<?php 
+	foreach($this->types as $type){
+	?>
+		<div class="ml5 objectsTypesLink forFInd">
+			<a class="link pl20"  data-id="<?php echo $type->getId(); ?>"  name="objectTypeLink"><?php echo $type->getName(); ?></a>
+		</div>
+	<?php
+	}
+	?>
+	<!--<div class="ml5">
+		<a href="objecttype" class="link"><?php echo $this->translate('objecttype')?></a>
+	</div>-->
+	<div class="ml5 menu">
+		<a href="lovelist" class="link"><?php echo $this->translate('lovelist')?></a>
+	</div>
+	<div class="ml5 publisherListLink">
+		<a href="publisher" class="link"><?php echo $this->translate('publisher')?></a>
+	</div>
+	<?php 
+	foreach($this->publishers as $publisher){
+	?>
+		<div class="ml5 publisherLinkDiv forFInd">
+			<a class="link pl20"  data-id="<?php echo $publisher->getId(); ?>"  name="publisherLink"><?php echo $publisher->getName(); ?></a>
+		</div>
+	<?php
+	}
+	?>
+	<div class="ml5 shopListLink">
+		<a href="shoplist" class="link"><?php echo $this->translate('shoplist')?></a>
+	</div>
+	<?php
+	foreach($this->shopList as $item){
+	?>
+		<div class="ml5 shopLinkDiv forFInd">
+			<a class="link pl20"  data-id="<?php echo $item->getId(); ?>"  name="shopLink"><?php echo $item->getName(); ?></a>
+		</div>
+	<?php
+	}
+	?>
+</div>
