@@ -29,7 +29,7 @@ class Dao_User extends Miqo_Dao_Base {
         $this->dbTable = new Dao_DbTable_User();
     }
 
-    public function authenticate($email, $password) {
+    public function authenticate($email, $password) {//echo $email;echo $password;exit;
         $users = $this->dbTable->fetchAll(array ('email = ?' => $email));
         if (sizeof($users) == 1) {
             $user = &$this->getEntity($users[0]);

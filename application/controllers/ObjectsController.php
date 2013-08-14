@@ -41,7 +41,7 @@ class ObjectsController extends SecureController {
     public function listAction() {
         $filter = new Filter_Objects();
        // $filter->setId($this->id);
-        $filter->setObjectTypeId($this->objectTypeId);
+        $filter->setObjectTypeId($this->id);
         $filter->setPublisherId($this->publisherId);
         $filter->setShopListId($this->shopListId);
         $filter->setCostMin($this->costMin);

@@ -32,6 +32,11 @@ abstract class SecureController extends ControllerActionSupport {
         return $authUser;
     }
     
+    public function getPublisher(){
+        $authUser = $this->userSession->get('publisher');
+        return $authUser;
+    }
+    
     public function getUserDenyRoles(){
     	return self::$ACCESS_DEFINITIONS[$this->view->getUser()->getStatus()]['deny']['viewuser'];
     }

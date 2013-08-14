@@ -11,6 +11,18 @@
         <div class="fl mr5">
             <input type="hidden" name="objectTypeId" id="objectTypeId" value="">
         </div>
+        <!-- <div class="fl mr5">
+            <select name="objectTypeId" id="objectTypeId">
+                <option value="">--Select--</option>
+                <?php
+                    foreach($this->items as $item){
+                ?>
+                    <option value="<?php echo $item->getId() ?>" ><?php echo $this->translate($item->getName()); ?></option>
+                <?php
+                    }
+                ?>
+            </select>
+        </div>-->
 		<div class="fl mr5">
             <select name="publisherId" id="publisherId">
                 <option value="">--Select--</option>

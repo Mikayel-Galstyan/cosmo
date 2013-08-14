@@ -31,13 +31,18 @@
     </head>
 <body>
     <div class="page_wrapper">
+        <a class="link fr" style="color:black;" id="loginLink" onclick="$(this).hide();$('#loginIsHere').show();">myPage</a>
 	</div>
+    <div  style="position:fixed;top:50%;left:50%;background:silver;display:none;" id="loginIsHere"  class="ui-widget-content">
+        <a class="fr link" style="margin:5px;" onclick="$('#loginIsHere').hide();$('#loginLink').show();">X</a>
+        <div class="contentMyPage" style="padding-left:10px;padding-right:10px;margin-top:10px;">    
+            <?php echo $this->action("login", "auth"); ?>
+        </div>
+    </div>
 	<div class="content_wrapper">
 		<div class="content_container">
 			<div class="leftHead">
-				<div class="ml5">
-					 <?php echo $this->action("login", "auth"); ?>
-				</div>
+				
 				<div class="">
 					<?php echo $this->action("menu", "objects"); ?>
 				</div>

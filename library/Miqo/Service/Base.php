@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @package library_tf_service
+ * @package library_Miqo_service
  */
 
 /**
  * The abstract base class for service classes
  *
- * @package library_tf_service
+ * @package library_Miqo_service
  */
 abstract class Miqo_Service_Base {
     /**
@@ -92,10 +92,10 @@ abstract class Miqo_Service_Base {
      * 
      * @param string $name
      * @param array $args
-     * @throws TF_Util_Exception_Validation
-     * @throws TF_Util_Exception_AdServer
-     * @throws TF_Util_Exception_Service
-     * @throws TF_Util_Exception_NoSuchMethod
+     * @throws Miqo_Util_Exception_Validation
+     * @throws Miqo_Util_Exception_AdServer
+     * @throws Miqo_Util_Exception_Service
+     * @throws Miqo_Util_Exception_NoSuchMethod
      * @return mixed
      */
     public function __call($name, $args) {
@@ -190,7 +190,7 @@ abstract class Miqo_Service_Base {
      * Selects the row by id from the defined database table and returns valid domain object.
      * 
      * @param int $id
-     * @return TF_Domain_AbstractEntity|void
+     * @return Miqo_Domain_AbstractEntity|void
      */
     public function getById($id) {
         $domain = $this->dao->getById($id);
@@ -216,8 +216,8 @@ abstract class Miqo_Service_Base {
      * Deletes an item from specified database table by id (supports transactions).
      * 
      * @param int $id
-     * @throws TF_Util_Exception_Service
-     * @return TF_Domain_AbstractEntity
+     * @throws Miqo_Util_Exception_Service
+     * @return Miqo_Domain_AbstractEntity
      */
     public function __t_delete($id) {
         $domain = $this->dao->getById($id);
@@ -256,16 +256,16 @@ abstract class Miqo_Service_Base {
     /**
      * Provides validation by current user�s country id.
      * 
-     * @param TF_Domain_AbstractEntity $domain
-     * @throws TF_Service_AccessDenied
-     * @throws TF_Service_ItemNotExists
+     * @param Miqo_Domain_AbstractEntity $domain
+     * @throws Miqo_Service_AccessDenied
+     * @throws Miqo_Service_ItemNotExists
      */
     public function validateEntity($domain) {
         if ($domain){
             $userSession = new Miqo_Session_Base();
             $className = get_class($domain);
         } else {
-            $userSession = new TF_Session_Base();
+            $userSession = new Miqo_Session_Base();
             $message = 'User with id='.$userSession->get('authUser')->getId().' tries to get an item that does not exist in the database';
             throw new Miqo_Service_ItemNotExists($message);
         }

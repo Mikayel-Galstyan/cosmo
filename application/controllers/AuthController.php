@@ -48,6 +48,17 @@ class AuthController extends SecureController {
             $userSession = new Miqo_Session_Base();
         }
         $userSession->set('authUser', $user);
+        if($user->getStatus()==1){
+            $publisherService = new Service_Publisher();
+            $filter = new Filter_Publisher();
+            $filter->setUserId($user->getId());    
+            $publisher = $publisherService->getByUserId($filter);
+            if($publisher){
+                $userSession->set('publisher', $publisher);
+            }else{
+                
+            }
+        }
         if($user->getCountryId()){
             $userSession->set( 'countryId', $user->getCountryId());
         }

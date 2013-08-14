@@ -3,13 +3,15 @@
 		
 	});
 </script>
-<form action="auth/login" method="POST" id="loginForm" name="loginForm">
-    <div id="loginInfo">  
+<div id="loginInfo">
+    <form action="auth/login" method="POST" id="loginForm" name="loginForm">  
     <?php
         if($this->name){
-            echo '<span class="fl">'.$this->translate('hi').'  '.$this->name.'</span>'; ?><img class="fl mr5 mt5 ml5" style="height:25px;width:25px;" src="<?php echo $this->img; ?>">
-			<input  class="fl ml5 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/logout");Filter.submit("loginForm","loginInfo");' class="loginButton" value="<?php echo $this->translate('log.out') ?>">
-            
+            echo '<span class="fl ml5">'.$this->translate('hi').'  '.$this->name.'</span>'; ?><img class="fl ml5" style="height:25px;width:25px;" src="<?php echo $this->img; ?>">
+			<input  class="fl ml10 mr10" type="button" onclick = 'Form.changeAction("loginForm","auth/logout");Filter.submit("loginForm","loginInfo");' class="loginButton" value="<?php echo $this->translate('log.out') ?>">
+            <div id="loveList">
+                <?php echo $this->action("index",'lovelist'); ?>
+            </div>
      <?php   }else {
      ?>		
 			<div>
@@ -28,7 +30,7 @@
 				<input type="password" id="password" name="password" placeholder="Password" class="w120">
 			</div>
 			<div class="fl">	
-				<input  class="mr5 w50 mt5" type="button" onclick = 'Form.changeAction("loginForm","auth/login");Filter.submit("loginForm","loginInfo");'class="loginButton" value="<?php echo $this->translate('log.in') ?>">
+				<input  class="mr5 w50 mt5" type="button" onclick = 'Filter.submit("loginForm","loginInfo");' class="loginButton" value="<?php echo $this->translate('log.in') ?>">
 			</div>
 			<div class="fl">
 				<a href="user/edit" class="ml5 mt5 link registr">Registration</a>
@@ -37,5 +39,5 @@
     <?php
         }
     ?>
-    </div>
- </form>
+    </form>
+</div>

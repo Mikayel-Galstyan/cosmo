@@ -1,7 +1,7 @@
 <script>
 	selected = '';
 	$(function(){
-		$('.menu').click(function(){
+		/*$('.menu').click(function(){
 			$('.forFInd').hide(500);
 		});
 		$('.objectsTypes').click(function(){
@@ -11,7 +11,7 @@
 				$('.objectsTypesLink').show(500);
 			}
 		});
-		/*$('.publisherListLink').click(function(){
+		$('.publisherListLink').click(function(){
 			if(selected != 'publisherListLink'){
 				selected = 'publisherListLink';
 				$('.forFInd').hide(500);
@@ -28,11 +28,11 @@
 		
 	});
 </script>
-<div class="nav fl mt5 ml5">
+<div class="nav fl mt5 ml5" id="startBar">
 	<div class="ml5 objectsTypes">
-		<a href="objects" class="link"><?php echo $this->translate('objects')?></a>
+		<a href="objecttype" class="link"><?php echo $this->translate('objecttype')?></a>
 	</div>
-	<?php 
+	<!--<?php 
 	foreach($this->types as $type){
 	?>
 		<div class="ml5 objectsTypesLink forFInd">
@@ -41,12 +41,12 @@
 	<?php
 	}
 	?>
-	<!--<div class="ml5">
+	<div class="ml5">
 		<a href="objecttype" class="link"><?php echo $this->translate('objecttype')?></a>
 	</div>-->
-	<div class="ml5 menu">
+	<!--<div class="ml5 menu">
 		<a href="lovelist" class="link"><?php echo $this->translate('lovelist')?></a>
-	</div>
+	</div>-->
 	<div class="ml5 publisherListLink">
 		<a href="publisher" class="link"><?php echo $this->translate('publisher')?></a>
 	</div>

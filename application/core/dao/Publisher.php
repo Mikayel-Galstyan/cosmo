@@ -20,7 +20,6 @@ class Dao_Publisher extends Miqo_Dao_Base {
     public function __construct() {
         $this->dbTable = new Dao_DbTable_Publisher();
     }
-	
     
     
     public function &getByParams(Filter_Publisher $filter) {

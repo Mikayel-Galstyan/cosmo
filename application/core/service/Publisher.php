@@ -29,6 +29,16 @@ class Service_Publisher extends Miqo_Service_Base {
         return $items;
     }
     
+    public function getByUserId(Filter_Publisher $filter){
+        $items = $this->dao->getByParams($filter);
+        if(count($items)>0){
+            $answer = $items[0];
+        }else{
+            $answer = false;
+        }
+        return $answer;
+    }
+    
     public function validate(Domain_Publisher $domain) {
         $validationConf = self::$VALIDATION_CONFIG;
         if ($this->validator == null) {
