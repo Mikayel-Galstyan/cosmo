@@ -25,12 +25,13 @@
 				$('.shopLinkDiv').show(500);
 			}
 		});*/
-		
+		$('#startBar>div').draggable();
+        $('#startBar>div').draggable({ containment: "body", scroll: false });
 	});
 </script>
-<div class="nav fl mt5 ml5" id="startBar">
-	<div class="ml5 objectsTypes">
-		<a href="objecttype" class="link"><?php echo $this->translate('objecttype')?></a>
+<div id="startBar">
+	<div class="ml5 w100">
+		<a href="objecttype" class="link"><img src="images/mapmenu/Folder.png" style="width:50px;"><br><?php echo $this->translate('objecttype')?></a>
 	</div>
 	<!--<?php 
 	foreach($this->types as $type){
@@ -47,8 +48,8 @@
 	<!--<div class="ml5 menu">
 		<a href="lovelist" class="link"><?php echo $this->translate('lovelist')?></a>
 	</div>-->
-	<div class="ml5 publisherListLink">
-		<a href="publisher" class="link"><?php echo $this->translate('publisher')?></a>
+    <div class="ml5 w100">
+		<a href="publisher" class="link"><img src="images/mapmenu/Folder.png" style="width:50px;"><br><?php echo $this->translate('publisher')?></a>
 	</div>
 	<!--<?php 
 	foreach($this->publishers as $publisher){
@@ -59,8 +60,8 @@
 	<?php
 	}
 	?>-->
-	<div class="ml5 shopListLink">
-		<a href="shoplist" class="link"><?php echo $this->translate('shoplist')?></a>
+	<div class="ml5 w100">
+		<a href="shoplist" class="link"><img src="images/mapmenu/Folder.png" style="width:50px;"><br><?php echo $this->translate('shoplist')?></a>
 	</div>
 	<!--<?php
 	foreach($this->shopList as $item){

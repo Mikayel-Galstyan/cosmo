@@ -189,8 +189,8 @@ $(function(){
 	});
 	//activate menus  
 	Menu.acitvate(Url.get());
-    $('#loginIsHere').draggable();
-    $('#loginIsHere').resizable();
+    $('#loginIsHere').draggable({ containment: "body", scroll: false });
+    
 });
 
 

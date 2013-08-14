@@ -30,9 +30,6 @@
     <?php echo $this->action("index", "Jsmin"); ?>
     </head>
 <body>
-    <div class="page_wrapper">
-        <a class="link fr" style="color:black;" id="loginLink" onclick="$(this).hide();$('#loginIsHere').show();">myPage</a>
-	</div>
     <div  style="position:fixed;top:50%;left:50%;background:silver;display:none;" id="loginIsHere"  class="ui-widget-content">
         <a class="fr link" style="margin:5px;" onclick="$('#loginIsHere').hide();$('#loginLink').show();">X</a>
         <div class="contentMyPage" style="padding-left:10px;padding-right:10px;margin-top:10px;">    
@@ -41,17 +38,20 @@
     </div>
 	<div class="content_wrapper">
 		<div class="content_container">
-			<div class="leftHead">
-				
-				<div class="">
+			<div class="ml5 mr5">
+				<div class="fl">
 					<?php echo $this->action("menu", "objects"); ?>
 				</div>
 			</div>
 			<div class="panel fl ml20">
-					 <?php echo $this->layout()->content; ?>
+					 
 			</div>
 		</div>
 		<div class="cl"></div>
+	</div>
+    <div class="page_wrapper" style="position:fixed;bottom:0%;">
+        <a class="link fl" style="color:black;" id="startMenu" onclick="$(startMenu).show();">start</a>
+        <a class="link fr" style="color:black;" id="loginLink" onclick="$(this).hide();$('#loginIsHere').show();">myPage</a>
 	</div>	
 </body>
 </html>
