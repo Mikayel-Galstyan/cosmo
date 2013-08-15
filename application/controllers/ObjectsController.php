@@ -38,6 +38,16 @@ class ObjectsController extends SecureController {
         $this->view->shopList = $serviceShops->getAll();
 	}
 	
+    public function startmenuAction(){
+		$serviceType = new Service_ObjectType();
+        $this->view->types = $serviceType->getAll();
+		$servicePublisher = new Service_Publisher();
+        $this->view->publishers = $servicePublisher->getAll();
+		$serviceShops = new Service_ShopList();
+        $this->view->shopList = $serviceShops->getAll();
+	}
+    
+    
     public function listAction() {
         $filter = new Filter_Objects();
        // $filter->setId($this->id);

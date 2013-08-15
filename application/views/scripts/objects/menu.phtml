@@ -31,45 +31,12 @@
 </script>
 <div id="startBar">
 	<div class="ml5 w100">
-		<a href="objecttype" class="link"><img src="images/mapmenu/Folder.png" style="width:50px;"><br><?php echo $this->translate('objecttype')?></a>
+		<a href="objecttype" data-href="objecttype" onclick="windowObject.create(this)" class="link"><img src="images/mapmenu/Folder.png" style="width:50px;"><br><?php echo $this->translate('objecttype')?></a>
 	</div>
-	<!--<?php 
-	foreach($this->types as $type){
-	?>
-		<div class="ml5 objectsTypesLink forFInd">
-			<a class="link pl20"  data-id="<?php echo $type->getId(); ?>"  name="objectTypeLink"><?php echo $type->getName(); ?></a>
-		</div>
-	<?php
-	}
-	?>
-	<div class="ml5">
-		<a href="objecttype" class="link"><?php echo $this->translate('objecttype')?></a>
-	</div>-->
-	<!--<div class="ml5 menu">
-		<a href="lovelist" class="link"><?php echo $this->translate('lovelist')?></a>
-	</div>-->
     <div class="ml5 w100">
-		<a href="publisher" class="link"><img src="images/mapmenu/Folder.png" style="width:50px;"><br><?php echo $this->translate('publisher')?></a>
+		<a href="publisher" data-href="publisher"  onclick="windowObject.create(this)" class="link"><img src="images/mapmenu/Folder.png" style="width:50px;"><br><?php echo $this->translate('publisher')?></a>
 	</div>
-	<!--<?php 
-	foreach($this->publishers as $publisher){
-	?>
-		<div class="ml5 publisherLinkDiv forFInd">
-			<a class="link pl20"  data-id="<?php echo $publisher->getId(); ?>"  name="publisherLink"><?php echo $publisher->getName(); ?></a>
-		</div>
-	<?php
-	}
-	?>-->
 	<div class="ml5 w100">
-		<a href="shoplist" class="link"><img src="images/mapmenu/Folder.png" style="width:50px;"><br><?php echo $this->translate('shoplist')?></a>
+		<a href="shoplist" ata-href="shoplist"  onclick="windowObject.create(this)" class="link"><img src="images/mapmenu/Folder.png" style="width:50px;"><br><?php echo $this->translate('shoplist')?></a>
 	</div>
-	<!--<?php
-	foreach($this->shopList as $item){
-	?>
-		<div class="ml5 shopLinkDiv forFInd">
-			<a class="link pl20"  data-id="<?php echo $item->getId(); ?>"  name="shopLink"><?php echo $item->getName(); ?></a>
-		</div>
-	<?php
-	}
-	?>-->
 </div>

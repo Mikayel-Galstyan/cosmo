@@ -11,7 +11,9 @@ class JsminController extends SecureController {
     public function indexAction() {
        echo '<script type="text/javascript">'; 
        if (APPLICATION_ENV=="development"){            
+            echo file_get_contents(APPLICATION_PATH.'/layouts/scripts/js/classes/StartMenu.js');
             echo file_get_contents(APPLICATION_PATH.'/layouts/scripts/js/classes/Menu.js');
+            echo file_get_contents(APPLICATION_PATH.'/layouts/scripts/js/classes/folder.js');
             echo file_get_contents(APPLICATION_PATH.'/layouts/scripts/js/classes/Page.js');
             echo file_get_contents(APPLICATION_PATH.'/layouts/scripts/js/classes/Form.js');
             echo file_get_contents(APPLICATION_PATH.'/layouts/scripts/js/classes/Filter.js');
@@ -33,8 +35,10 @@ class JsminController extends SecureController {
             echo file_get_contents(APPLICATION_PATH.'/layouts/scripts/js/classes/design/Slider.js');
             echo file_get_contents(APPLICATION_PATH.'/layouts/scripts/js/Init.js');            
          }else{                        
-            echo TF_Util_JSMin::minify(APPLICATION_PATH.'/layouts/scripts/js/classes/Menu.js');
+            echo TF_Util_JSMin(APPLICATION_PATH.'/layouts/scripts/js/classes/Menu.js');
+            echo TF_Util_JSMin::minify(APPLICATION_PATH.'/layouts/scripts/js/classes/StartMenu.js');
             echo TF_Util_JSMin::minify(APPLICATION_PATH.'/layouts/scripts/js/classes/Page.js');
+            echo TF_Util_JSMin::minify(APPLICATION_PATH.'/layouts/scripts/js/classes/folder.js');
             echo TF_Util_JSMin::minify(APPLICATION_PATH.'/layouts/scripts/js/classes/Form.js');
             echo TF_Util_JSMin::minify(APPLICATION_PATH.'/layouts/scripts/js/classes/Filter.js');
             echo TF_Util_JSMin::minify(APPLICATION_PATH.'/layouts/scripts/js/classes/Ajax.js');

@@ -17,7 +17,8 @@ var Util = new Util();
 var Coordinates = new Coordinates();
 var Grid = new Grid();
 var CustomForm = new CustomForm();
-
+var StartMenu = new StartMenu();
+var windowObject = new windowObject();
 var removeForm = new RemoveForm();
 var Slider = new Slider();
 var PolygonMenu = new PolygonMenu();
@@ -190,7 +191,7 @@ $(function(){
 	//activate menus  
 	Menu.acitvate(Url.get());
     $('#loginIsHere').draggable({ containment: "body", scroll: false });
-    
+    StartMenu.init();
 });
 
 
