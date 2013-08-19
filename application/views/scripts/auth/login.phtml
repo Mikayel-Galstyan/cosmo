@@ -3,7 +3,7 @@
 		
 	});
 </script>
-<div id="loginInfo">
+<div id="loginInfo" style="position:relative;top:30%;left:30%;width:68%;">
     <form action="auth/login" method="POST" id="loginForm" name="loginForm">  
     <?php
         if($this->name){
@@ -23,16 +23,16 @@
 					?>	
 				</label>
 			</div>	
-			<div  class=" mt5">
-				<input type="text" id="username" class="w120" name="email" placeholder="Username">
+			<div  class=" mt5 r50">
+				<input type="text" id="username" class="r100" name="email" placeholder="Username">
 			</div>
-			<div  class=" mt5">    
-				<input type="password" id="password" name="password" placeholder="Password" class="w120">
+			<div  class=" mt5 r50">    
+				<input type="password" id="password" name="password" placeholder="Password" class="r100">
 			</div>
 			<div class="fl">	
 				<input  class="mr5 w50 mt5" type="button" onclick = 'Filter.submit("loginForm","loginInfo");' class="loginButton" value="<?php echo $this->translate('log.in') ?>">
 			</div>
-			<div class="fl">
+			<div class="fl r50">
 				<a href="user/edit" class="ml5 mt5 link registr">Registration</a>
 			</div>
 			

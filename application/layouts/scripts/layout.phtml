@@ -11,11 +11,6 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />  
 	<link rel="stylesheet" href="css/menu.css" type="text/css" media="screen" />
     <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
-    <script>
-		if(location.href == '<?php echo $this->baseUrl(); ?>auth/login'){
-			location.href = '<?php echo $this->baseUrl(); ?>objects'
-		}
-	</script>   
     <?php 
     echo $this->headScript()
     ->appendFile('js/jquery-1.8.2.min.js', 'text/javascript')
@@ -30,17 +25,11 @@
     ?>
     <?php echo $this->action("index", "Jsmin"); ?>
     </head>
-<body>
-    <div  style="position:fixed;top:50%;left:50%;background:silver;display:none;" id="loginIsHere"  class="ui-widget-content">
-        <a class="fr link" style="margin:5px;" onclick="$('#loginIsHere').hide();$('#loginLink').show();">X</a>
-        <div class="contentMyPage" style="padding-left:10px;padding-right:10px;margin-top:10px;">    
-            <?php echo $this->action("login", "auth"); ?>
-        </div>
-    </div>
+<body style="overflow:hidden;background-image:url('<?php echo $this->action("islogin", "auth"); ?>');background-size:100% 100%;">
 	<div class="content_wrapper">
 		<div class="content_container">
 			<div class="ml5 mr5">
-				<div class="fl">
+				<div class="fl r100">
 					<?php echo $this->action("menu", "objects"); ?>
 				</div>
 			</div>
@@ -50,12 +39,15 @@
 		</div>
 		<div class="cl"></div>
 	</div>
-    <div id="startMenuBar" style="position:fixed;bottom:0px;display:none;">
-        <?php echo $this->action("startmenu", "objects"); ?>
-    </div>
-    <div class="page_wrapper" style="position:fixed;bottom:0%;">
+    <div class="page_wrapper" style="opacity: 0.9;">
+	
+		<div id="startMenuBar" style="position:fixed;bottom:10%;display:none;width:12%;">
+			<?php echo $this->action("startmenu", "objects"); ?>
+		</div>
         <a class="link fl ml5" style="color:black;margin-right:185px;" id="startMenu">start</a>
-        <a class="link fr mr5 ml5" style="color:black;" id="loginLink" onclick="$(this).hide();$('#loginIsHere').show();">myPage</a>
+         <div class="fr mr5 startWindow">
+			<a class="link" style="color:black;" data-href="auth/login">My folder</a>
+		</div>
 	</div>	
 </body>
 </html>

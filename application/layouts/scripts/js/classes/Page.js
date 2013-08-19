@@ -12,7 +12,7 @@ function Page() {
      *
      * Calling ajax response
      */
-	function success(response) {
+	function success(response) {console.log(ajaxContainer);
         //Append result in panel
 		Util.append($(ajaxContainer), response);               
         //remove notfications

@@ -1,9 +1,9 @@
 //initializing ajax container class
 var ajaxContainer = '.panel';
+var selectedWindow = '';
 
 //page title
 var title = $('title').text();
-
 //initializing javascript classes
 var Mask = new Mask();
 var Notify = new Notify();
@@ -22,7 +22,17 @@ var windowObject = new windowObject();
 var removeForm = new RemoveForm();
 var Slider = new Slider();
 var PolygonMenu = new PolygonMenu();
+var preferredHeight = $(window).height();
 $(function(){
+	$(window).bind('resize', function(){
+		//Standard height, for which the body font size is correct
+		var displayHeight = $(window).height();
+		var percentage = displayHeight / preferredHeight;
+		var newFontSize = Math.floor(12 * percentage) - 1;
+		console.log(percentage);
+		$("body,.folderIcon>a>div,.page_wrapper,.windowObject").css("font-size", newFontSize);
+		$("body").css("font-size", newFontSize);
+    }).trigger('resize');
 	// Function to get the Max value in Array
     Array.max = function( array ){
         return Math.max.apply( Math, array );
@@ -38,6 +48,18 @@ $(function(){
     		Url.load(href);    		    	
     	}        
     });
+	$('.newWindow>a').dblclick(function(){
+		var id = windowObject.create(this);
+		ajaxContainer = '#' + id + ' .panel';
+	});
+	$('.startWindow>a').click(function(){
+		var id = windowObject.create(this);
+		ajaxContainer = '#' + id + ' .panel';
+		$('#startMenuBar').hide();
+	});
+	$('.content_wrapper').click(function(){
+		$('#startMenuBar').hide();
+	});
 	$(document).on('click', 'a:not(.noAjax)', function(){
 		$this = $(this);
     	href = $this.attr('href');    	

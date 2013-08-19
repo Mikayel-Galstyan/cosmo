@@ -16,6 +16,7 @@ class UserController extends SecureController {
     private $passwordConfirm = null;
     private $status = null;
     private $gender = null;
+	private $background = null;
     private $order = self::DEFAULT_ORDER;
     private $sort = self::DEFAULT_SORT;
 
@@ -130,29 +131,38 @@ class UserController extends SecureController {
 		if(!is_dir ("users/".$this->email)){
 			mkdir("users/".$this->email);
 		}
-        if($_FILES['path']){
-            $path = $_FILES['path'];
-            $email = $this->email;
-            $userfile_extn = explode(".", strtolower($path['name']));
-            do{
-                $new_name = md5(rand ( -100000 , 100000 )).'.'.$userfile_extn[1];
-                $fullPath = "users/".$email.'/'.$new_name;
-            }while(file_exists($fullPath));
-            @rename ($path['name'],$new_name);
-            move_uploaded_file ($path['tmp_name'],$fullPath);
-            $item->setPath($fullPath);
-        }
+		if($_FILES['path']){
+			$path = $_FILES['path'];
+			$email = $this->email;
+			$userfile_extn = explode(".", strtolower($path['name']));
+			do{
+				$new_name = md5(rand ( -100000 , 100000 )).'.'.$userfile_extn[1];
+				$fullPath = "users/".$email.'/'.$new_name;
+			}while(file_exists($fullPath));
+			@rename ($path['name'],$new_name);
+			move_uploaded_file ($path['tmp_name'],$fullPath);
+			$item->setPath($fullPath);
+			if($_FILES['background']){
+				$background = $_FILES['background'];
+				$userfile_extn = explode(".", strtolower($background['name']));
+				do{
+					$new_name = md5(rand ( -100000 , 100000 )).'.'.$userfile_extn[1];
+					$fullPath = "users/".$email.'/'.$new_name;
+				}while(file_exists($fullPath));
+				@rename ($background['name'],$new_name);
+				move_uploaded_file ($background['tmp_name'],$fullPath);
+				$item->setBackground($fullPath);
+			}
+		}		
         try {
-            $item = $service->save($item);
-/*			$img->setUserId($item->getId());
-			$seviceImg->save($img);*/
+			$item = $service->save($item);
             $userSession = $this->getAuthUser();
             if (!$userSession) {
                 $userSession = new Miqo_Session_Base();
                 $userSession->set('authUser', $item); 
             }
             $urlId = ($this->id)?'/'.$this->id:'';
-            $this->printJsonSuccessRedirect($this->translate('success.save'),($this->status==1)?'publisher'.$urlId .'/edit':'index');
+            $this->printJsonSuccessRedirect($this->translate('success.save'),($this->status==1)?'lovelist':'index');
         } catch ( Miqo_Util_Exception_Validation $vex ) {
             $errors = $this->translateValidationErrors($vex->getValidationErrors());
             $this->printJsonError($errors, $this->translate('validation.error'));
@@ -193,6 +203,10 @@ class UserController extends SecureController {
     }
     public function &setPublisherId($val) {
         $this->publisherId = $val;
+        return $this;
+    }
+	public function &setBackground($val) {
+        $this->background = $val;
         return $this;
     }
     public function &setOrder($val) {

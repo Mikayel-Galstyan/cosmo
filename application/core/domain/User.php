@@ -6,6 +6,7 @@ class Domain_User extends Miqo_Domain_AbstractEntity {
      * @var string
      */
     protected $oauthUid = null;
+	
     /**
      *
      * @var string
@@ -106,7 +107,19 @@ class Domain_User extends Miqo_Domain_AbstractEntity {
      * @var int
      */
     protected $countryId = null;
-    
+     /**
+     *
+     * @var string
+     */
+    protected $background = null;
+	
+	public function getBackground() {
+        return $this->background;
+    }
+    public function &setBackground($val) {
+        $this->background = $val;
+        return $this;
+    }
     public function getEmail() {
         return $this->email;
     }

@@ -1,33 +1,61 @@
+.folderIcon{
+	display:block;
+	width:4%
+}
+.folderIcon>a>div{
+	width:100%;
+	font-size:12px;
+}
+.folderIcon>a>img{
+	width : 100%;
+}
+
 .windowObject{
-    height: 300px;
-    width:500px;
-    max-width:800px;
-    max-height:600px;
-    position:absolute;
-    background:white;
     border:1px solid silver;
 }
 .windowHeader{
     background:aqua;
     position:relative;
     width:100%;
-    height:25px;
+    height:7%;
+	opacity: 0.7;
     cursor:pointer !important;
+}
+.fullScreen{
+	position:fixed;
+	top:0px !important;
+	left:0px !important;
+	width:100%;
+	height:90%;
+	z-index:100;
+}
+.normalWindow{
+	position:absolute;
+	height: 300px;
+    width:500px;
+    max-width:800px;
+    max-height:600px;
+	z-index:1;
+}
+.selected{
+	z-index:101;
 }
 .windowContent{
     position:relative;
+	background:white;
     width:100%;
-    height:100%;
+    height:93%;
+	opacity: 1;
 }
 .leftMenu{
    border-right:1px solid silver;
 }
 .mainContent{
-   
+   opacity: 1;
 }
-.fullScreen{
+.fullScreenButton{
     display:block;
-    background-image: url('images\icons\full-screen.png');
+    background-image: url('../images/icons/full-screen.png');
     background-size: 15px 15px;
     background-repeat: no-repeat;
     height:15px;

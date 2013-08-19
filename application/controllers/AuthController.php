@@ -16,6 +16,18 @@ class AuthController extends SecureController {
         $this->_forward('login');
     }
     
+	public function isloginAction(){
+		$background = 'images/backgrounds/Lighthouse.jpg';
+		if (!isset($userSession)) {
+            $userSession = new Miqo_Session_Base();
+        }
+        $user = $userSession->get('authUser');
+		if($user){
+			$background = $user->getBackground();
+		}
+		$this->view->background = $background;
+	}
+	
     public function loginAction() {
         if($this->_request->isXmlHttpRequest()) {
             //$this->javascript()->redirect('index');

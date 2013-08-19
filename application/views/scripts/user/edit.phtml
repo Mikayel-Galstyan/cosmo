@@ -13,18 +13,18 @@ $(function(){
     	Menu.acitvate('user');        
     });
 </script>
-<form id="ajaxForm" action="user/save" method="post" onsubmit="Form.submit('ajaxForm'); return false;">
+<form id="ajaxForm" action="user/save" method="post" onsubmit="Form.submit('ajaxForm'); return false;" style="position:absolute;">
     <input type="hidden" name="id" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getId()):'')?>" />
     <div class="fixed_head">
         <span class="tableTitle"><?php echo $this->translate('users'). ' // ' . ($this->item ? $this->translate('edit').' // ' . $this->htmlEscape($this->item->getEmail()) : $this->translate('add')); ?></span>        
         <table class="editTable">                    
             <tbody>                    
                 <tr>
-                    <td class="middle left w180"><label for="email"><?php echo $this->translate('email')?> *</label></td>
+                    <td class="middle left r30"><label for="email"><?php echo $this->translate('email')?> *</label></td>
                     <td class="middle left"><input type="text" name="email" id="email" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getEmail()):'')?>"/></td>                    
                 </tr>    
                 <tr>
-                    <td class="middle left w150"><label for="firstName"><?php echo $this->translate('first.name')?></label></td>
+                    <td class="middle left"><label for="firstName"><?php echo $this->translate('first.name')?></label></td>
                     <td class="middle left"><input type="text" name="firstName" id="firstName" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getFirstName()):'')?>"/></td>
                 </tr>
                 <tr>
@@ -42,12 +42,13 @@ $(function(){
                 </tr>
                <?php if($this->authorize('role')){?>
                 <tr>
-                   <td class="middle left"><label for="status"><?php echo $this->translate('user.role')?> </label></td>
+                   <td class="middle left"><!-- <label for="status"><?php echo $this->translate('user.role')?> </label>--></td>
                    <td class="middle left">
-                       <select name="status" id="status">
+					<input type="hidden" name="status" id="status" value="2"/>
+                     <!--  <select name="status" id="status">
                             <option value="2"><?php echo $this->translate('user')?></option>
                             <option value="1"><?php echo $this->translate('publisher')?></option>
-                       </select>
+                       </select>-->
                    </td>
                 </tr>
                <?php }?>
@@ -63,8 +64,12 @@ $(function(){
                <?php }?>
 				<tr>
                     <td class="middle left"><label for="path"><?php echo $this->translate('image')?> *</label></td>
-                    <td class="middle left"><input type="file" name="path" id="path" value="<?php echo ($this->img ? $this->htmlEscape($this->img->getPath()):'')?>"/></td>
-                </tr>			   
+                    <td class="middle left"><input type="file" name="path" id="path" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getPath()):'')?>"/></td>
+                </tr>
+				<tr>
+                    <td class="middle left"><label for="background"><?php echo $this->translate('background')?> *</label></td>
+                    <td class="middle left"><input type="file" name="background" id="background" value="<?php echo ($this->item ? $this->htmlEscape($this->item->getBackground()):'')?>"/></td>
+                </tr>				
                 <tr>
                     <td class="middle left"><?php echo $formatting->space(); ?></td>
                     <td class="middle left">
