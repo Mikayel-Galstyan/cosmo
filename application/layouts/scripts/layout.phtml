@@ -25,7 +25,7 @@
     ?>
     <?php echo $this->action("index", "Jsmin"); ?>
     </head>
-<body style="overflow:hidden;background-image:url('<?php echo $this->action("islogin", "auth"); ?>');background-size:100% 100%;">
+<body id="body" style="overflow:hidden;background-image:url('<?php echo $this->action("islogin", "auth"); ?>');background-size:100% 100%;">
 	<div class="content_wrapper">
 		<div class="content_container">
 			<div class="ml5 mr5">
@@ -41,12 +41,12 @@
 	</div>
     <div class="page_wrapper" style="opacity: 0.9;">
 	
-		<div id="startMenuBar" style="position:fixed;bottom:10%;display:none;width:12%;">
+		<div id="startMenuBar" style="position:fixed;bottom:5%;display:none;width:12%;">
 			<?php echo $this->action("startmenu", "objects"); ?>
 		</div>
-        <a class="link fl ml5" style="color:black;margin-right:185px;" id="startMenu">start</a>
-         <div class="fr mr5 startWindow">
-			<a class="link" style="color:black;" data-href="auth/login">My folder</a>
+        <a class="link fl ml5" style="color:black;margin-right:10%;" id="startMenu"><img src="images/backgrounds/startIco.png" title="start" style="height:100%;"></a>
+         <div class="fl mr5 startWindow">
+			<a class="link" style="color:black;" data-href="auth/login"><img src="images/backgrounds/myFolder.png" title="my folder" style="height:100%;"></a>
 		</div>
 	</div>	
 </body>

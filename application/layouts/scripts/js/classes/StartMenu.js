@@ -10,13 +10,22 @@ StartMenu = function(){
             }
         });*/
         $('#startMenu').click(function(){
-            if(!show){console.log('show');
+            if(!show){
                 show = true;
                 $('#startMenuBar').show(); 
-            }else{console.log('hide1');
+            }else{
                 show = false;
                 $('#startMenuBar').hide(); 
             }
+        });
+        $('.startWindow>a').click(function(){
+            var id = windowObject.create(this);
+            ajaxContainer = '#' + id + ' .panel';
+            $('#startMenuBar').hide();
+        });
+        $('.content_wrapper').click(function(){
+            $('#startMenuBar').hide();
+            show = false;
         });
     }
 }

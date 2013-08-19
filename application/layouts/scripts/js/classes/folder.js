@@ -2,14 +2,14 @@ windowObject = function(){
     this.count = 0;
     this.create = function(obj){
         var id = 'window'+this.count+1;
-        html  = '<div class="windowObject show normalWindow selected" id="'+id+'">'+
+        html  = '<div class="windowObject show fullScreen selected" id="'+id+'">'+
             '<div class="windowHeader">'+
-                '<div class="fl m5">ico</div>'+
-                '<div class="fl m5">'+$(obj).text()+'</div>'+
+                '<div class="fl ml5"><img src="images/mapmenu/Folder.png" style="height:100%" title="'+$(obj).text()+'"></div>'+
+                '<div class="fl ml5">'+$(obj).text()+'</div>'+
                 '<div class="fr m5"><a class="link fl mr5 minimize" data-id="'+id+'"  onclick="windowObject.minimize(this);">-</a><a class="fullScreenButton fl mr5 link" data-id="'+id+'" onclick="windowObject.fullScreen(this);"></a><a  onclick="windowObject.close(this);" class="link fl mr5 close" data-id="'+id+'">X</a></div>'+
             '</div>'+
             '<div class="windowContent" >'+
-                '<table style="position:absolute;top:0px;width:100%;height:100%;">'+
+                '<table style="top:0px;width:100%;height:100%;">'+
                     '<tr>'+
                         '<td class="mainContent panel">'+
                             '<div>content '+id+'</div>'+
@@ -37,7 +37,7 @@ windowObject = function(){
             //$(this).children( ".windowContent" ).height(parseInt($('#'+id).height())-25);
         });
         $('#'+id).css({'position':'fixed','top':150+(this.count*20)+'px','left':150+(this.count*20)+'px'});
-        html='<div class="fl ml5 mr10 link" style="color:black;" id="ico'+id+'" data-id="'+id+'" onclick="windowObject.minimize(this);">'+$(obj).text()+'</div>';
+        html='<a class="fl link minButton" style="" id="ico'+id+'" data-id="'+id+'" onclick="windowObject.minimize(this);"><img src="images/mapmenu/Folder.png" title="'+$(obj).text()+'"></a>';
         $('.page_wrapper').append(html);
         if(obj){
             var href = $(obj).data('href');

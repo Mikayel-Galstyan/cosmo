@@ -162,6 +162,7 @@ class UserController extends SecureController {
                 $userSession->set('authUser', $item); 
             }
             $urlId = ($this->id)?'/'.$this->id:'';
+            //$this->javascript()->redirect('index');
             $this->printJsonSuccessRedirect($this->translate('success.save'),($this->status==1)?'lovelist':'index');
         } catch ( Miqo_Util_Exception_Validation $vex ) {
             $errors = $this->translateValidationErrors($vex->getValidationErrors());

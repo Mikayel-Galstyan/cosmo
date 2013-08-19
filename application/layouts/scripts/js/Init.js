@@ -22,16 +22,18 @@ var windowObject = new windowObject();
 var removeForm = new RemoveForm();
 var Slider = new Slider();
 var PolygonMenu = new PolygonMenu();
-var preferredHeight = $(window).height();
+var preferredHeight = '1000';
 $(function(){
 	$(window).bind('resize', function(){
 		//Standard height, for which the body font size is correct
 		var displayHeight = $(window).height();
 		var percentage = displayHeight / preferredHeight;
-		var newFontSize = Math.floor(12 * percentage) - 1;
+		var newFontSize = Math.floor(14 * percentage) - 1;
 		console.log(percentage);
-		$("body,.folderIcon>a>div,.page_wrapper,.windowObject").css("font-size", newFontSize);
-		$("body").css("font-size", newFontSize);
+        if(newFontSize>12){
+            $("body,.folderIcon>a>div,.page_wrapper,.windowObject").css("font-size", newFontSize);
+            $("body").css("font-size", newFontSize);
+        }
     }).trigger('resize');
 	// Function to get the Max value in Array
     Array.max = function( array ){
@@ -52,14 +54,7 @@ $(function(){
 		var id = windowObject.create(this);
 		ajaxContainer = '#' + id + ' .panel';
 	});
-	$('.startWindow>a').click(function(){
-		var id = windowObject.create(this);
-		ajaxContainer = '#' + id + ' .panel';
-		$('#startMenuBar').hide();
-	});
-	$('.content_wrapper').click(function(){
-		$('#startMenuBar').hide();
-	});
+	
 	$(document).on('click', 'a:not(.noAjax)', function(){
 		$this = $(this);
     	href = $this.attr('href');    	

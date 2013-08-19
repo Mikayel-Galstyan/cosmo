@@ -5,6 +5,7 @@ class AuthController extends SecureController {
     
     private $email = null;
     private $password = null;
+    private $id = null;
 
     public function init() {
         parent::init();    
@@ -17,7 +18,15 @@ class AuthController extends SecureController {
     }
     
 	public function isloginAction(){
-		$background = 'images/backgrounds/Lighthouse.jpg';
+		$background = 'background: rgb(242,249,254); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(242,249,254,1) 0%, rgba(214,240,253,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,249,254,1)), color-stop(100%,rgba(214,240,253,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(242,249,254,1) 0%,rgba(214,240,253,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(242,249,254,1) 0%,rgba(214,240,253,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(242,249,254,1) 0%,rgba(214,240,253,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(242,249,254,1) 0%,rgba(214,240,253,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#f2f9fe", endColorstr="#d6f0fd",GradientType=0 ); /* IE6-9 */
+        ';
 		if (!isset($userSession)) {
             $userSession = new Miqo_Session_Base();
         }
@@ -31,6 +40,9 @@ class AuthController extends SecureController {
     public function loginAction() {
         if($this->_request->isXmlHttpRequest()) {
             //$this->javascript()->redirect('index');
+        }
+        if($this->id){
+            
         }
         $userSession = new Miqo_Session_Base();
         if ($userSession->get('authUser')) {
@@ -75,12 +87,12 @@ class AuthController extends SecureController {
             $userSession->set( 'countryId', $user->getCountryId());
         }
         $this->LOG->info('Success login with Username -> "' . $user->getEmail() . '"');
-        return $this->_redirect('auth/login');
+        $this->javascript()->redirect('index');
     }
 
     public function logoutAction() {
         @Zend_Session::destroy(true);
-        return $this->_redirect('auth/login');
+        $this->javascript()->redirect('index');
     }
 
     public function &setEmail($val) {
@@ -90,6 +102,11 @@ class AuthController extends SecureController {
     
     public function &setPassword($val) {
         $this->password = $val;
+        return $this;
+    }
+    
+    public function &setId($val) {
+        $this->id = $val;
         return $this;
     }
 

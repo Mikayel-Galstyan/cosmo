@@ -3,17 +3,29 @@
         width:100%;
     }
     .menuBarCollumn>a{
+        background:  #66b6fc; /* Old browsers */
         height:100%;
         width:100%;
         display:block;
-        background: rgb(211, 211, 211);
         padding:5%;
+        color:white;
     }
     .menuBarCollumn>a:hover{
-      background:  rgb(196, 196, 196);
+        background: rgb(178,225,255); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(178,225,255,1) 0%, rgba(102,182,252,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(178,225,255,1)), color-stop(100%,rgba(102,182,252,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(178,225,255,1) 0%,rgba(102,182,252,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(178,225,255,1) 0%,rgba(102,182,252,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(178,225,255,1) 0%,rgba(102,182,252,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(178,225,255,1) 0%,rgba(102,182,252,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2e1ff', endColorstr='#66b6fc',GradientType=0 ); /* IE6-9 */
+
+    }
+    .thisismenu{
+       
     }
 </style>    
-<div style="width:100%;">
+<div style="width:100%;" class="thisismenu">
     <div class="menuBarCollumn startWindow">
         <a class="link" data-href="objects">objects</a>
     </div>
